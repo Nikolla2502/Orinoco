@@ -1,35 +1,37 @@
-main()
+teddies()
 
-async function  main(){
-    const articles = await getArticles()
-    displayArticles(articles)
+async function  teddies(){
+    const articlesTeddies = await getArticlesTeddies()
+    displayArticlesTeddies(articlesTeddies)
 }
 
 
-function getArticles(){
+function getArticlesTeddies(){
     return fetch("http://localhost:3000/api/teddies")
      .then(function(httpBodyResponse){
        return httpBodyResponse.json()
      })
-     .then(function(articles){
-        return articles
+     .then(function(articlesTeddies){
+         console.log(articlesTeddies)
+        return articlesTeddies
      })
      .catch(function(error){
          alert(error)
      })
 }
 
-function displayArticles(article){
-    document.getElementById("teddies").innerHTML=`
-    <h2 class="card-header my-3 text-center">
-                ${article.name}
-                </h2>
-                <div class="card-body">
-                    <img class="img-fluid imgProduct" src="https://source.unsplash.com/random/300x300">
-                    <h4 class="card-text text-center m-5">
-                    Des ours
-                    </h4>
-                    <h4 class="card-price text-end">50€</h4>
-                </div>
+function displayArticlesTeddies(articleTeddies){
+    document.getElementById("product").innerHTML=`
+    <a href="" class="stretched-link" ></a>
+    <h2 class="card-header my-3 text-center" id="productName">
+    ours
+    </h2>
+    <div class="card-body">
+        <img class="img-fluid imgProduct" id="productImg">
+        <h4 class="card-text text-center m-5">
+    
+        </h4>
+        <h4 class="card-price text-end" id="productPrice"></h4>
+    
     `
 }
