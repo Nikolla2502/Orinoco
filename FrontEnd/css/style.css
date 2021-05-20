@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+
+body{
+    background-color: #f3e9f1;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+}
+.card-header, .cardProduct, .imgProduct{
+    border-radius: 15px;
+}
