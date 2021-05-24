@@ -20,22 +20,36 @@
 <body>
 
     <!--   Header     -->
-
-    <div class="container-fluid header">
-        <div class="row">
-          <div class="col text-center banner">
-            <img src="media/orinoco.jpeg" alt="orinoco logo">
-            <h1>Orinoco le leader de vos envies</h1>
-          </div>
-        </div>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white text-dark">
+            <a class="navbar-brand" href="index.html">
+                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3" src="media/orinoco.jpeg" alt="logo Orinoco">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="navbar-item active">
+                        <a class="nav-link menu" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link menu" href="cart.html">
+                            Panier
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+             </div>
+        </nav>
+    </header>  
 
       <!-- Fiche produit -->
 
     <div class="container">
-        <div class="row">
-            <div class="col card m-5 cardProduct">
-            <a href="cart.html" class="stretched-link" id="teddies"></a>
+        <div class="row d-flex justify-content-center">
+            <div class="col card m-3 col-12 col-md-3 " id="cardProduct">
+            <a href="order.html" class="stretched-link" id="teddy"></a>
                 <h2 class="card-header my-3 text-center" id="teddiesName">
                   Ours en peluche
                 </h2>
@@ -48,8 +62,8 @@
                 </div>
             </div>
 
-        <div class="col card m-5 cardProduct">
-            <a href="cart.html" class="stretched-link"  id="camera"></a>
+        <div class="col card m-3 col-12 col-md-3 cardProduct">
+            <a href="order.html" class="stretched-link"  id="camera"></a>
                 <h2 class="card-header my-3 text-center"  id="cameraName">
                     Camera Vintage
                 </h2>
@@ -62,8 +76,8 @@
                 </div>
         </div>
 
-        <div class="col card  m-5 cardProduct">
-            <a href="cart.html" class="stretched-link" id="furniture"></a>
+        <div class="col card  m-3 col-12 col-md-3 cardProduct">
+            <a href="order.html" class="stretched-link" id="furniture"></a>
                 <h2 class="card-header my-3 text-center">
                     Meuble en chêne
                 </h2>
@@ -79,6 +93,15 @@
     </div>  
 
 
+    <!--Partie footer-->
+    <footer class="footer pt-4 pb-2 mb-3 mx-5 bg-white text-dark">
+        <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Mentions légales</a></li>
+        </ul>
+        
+        
+    </footer>
 
 
 

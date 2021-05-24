@@ -21,23 +21,40 @@
 
     <!--   Header     -->
 
-    <div class="container-fluid header">
-        <div class="row">
-          <div class="col text-center banner">
-            <img src="media/orinoco.jpeg" alt="orinoco logo">
-            <h1>Orinoco le leader de vos envies</h1>
-          </div>
-        </div>
-      </div>
+
+    <!--   Header     -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white text-dark">
+            <a class="navbar-brand" href="index.html">
+                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3" src="media/orinoco.jpeg" alt="logo Orinoco">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="navbar-item active">
+                        <a class="nav-link menu" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link menu" href="cart.html">
+                            Panier
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+             </div>
+        </nav>
+    </header>
 
       <!-- Fiche produit -->
 
     <div class="container">
         <div class="row">
             <div class="col card m-5 cardProduct" id="teddies">
-                <a href="" class="stretched-link" ></a>
+                
                     <h2 class="card-header my-3 text-center" id="productName">
-                    
+                    Votre panier
                     </h2>
                     <div class="card-body">
                         <img class="img-fluid imgProduct" id="productImg">
@@ -45,6 +62,22 @@
                     
                         </h4>
                         <h4 class="card-price text-end" id="productPrice"></h4>
+                        <h1 class="card-title"><strong>Ours en peluche faits à la main </strong></h1>
+          Le montant de votre commande est de <span class="total_price"></span>€
+
+          <!-- Formulaire identification client-->
+          <form method="post" action="traitement.php">
+            <p><label for="family_name">Votre Nom :
+              <input type="text" name="family_name" id="family_name" placeholder="Nom" size="10" /></label></p>
+            <p><label for="name">Votre Prenom :
+            <input type="text" name="name" id="name" placeholder="Prenom" size="10" /></label></p>
+            <p><label for="adress_street">Votre Rue :
+            <input type="text" name="adress_street" id="adress_street" placeholder="Rue" size="60" /></label></p>
+            <p><label for="adress_zipcode">Code Postal :
+            <input type="number" name="adress_zipcode" id="adress_zipcode" placeholder="Code Postal" size="10" /></label></p>
+            <p><label for="adress_town">Ville :
+            <input type="text" name="adress_town" id="adress_town" placeholder="Ville" size="10" /></label></p>
+            </form>
                     </div>
                 
             </div>
@@ -65,7 +98,15 @@
         </div>
 
 
-
+    <!--Partie footer-->
+    <footer class="footer pt-4 pb-3 mx-5 bg-white text-dark">
+        <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Mentions légales</a></li>
+        </ul>
+        
+        
+    </footer>
 
 
 

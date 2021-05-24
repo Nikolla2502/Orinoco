@@ -21,30 +21,45 @@
 
     <!--   Header     -->
 
-    <div class="container-fluid header">
-        <div class="row">
-          <div class="col text-center banner">
-            <img src="media/orinoco.jpeg" alt="orinoco logo">
-            <h1>Orinoco le leader de vos envies</h1>
-          </div>
-        </div>
-      </div>
+
+    <!--   Header     -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white text-dark">
+            <a class="navbar-brand" href="index.html">
+                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3" src="media/orinoco.jpeg" alt="logo Orinoco">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="navbar-item active">
+                        <a class="nav-link menu" href="index.html">Accueil</a>
+                    </li>
+
+                </ul>
+             </div>
+        </nav>
+    </header>
 
       <!-- Fiche produit -->
 
     <div class="container">
         <div class="row">
-            <div class="col card m-5 cardProduct" id="teddies">
-                <a href="" class="stretched-link" ></a>
-                    <h2 class="card-header my-3 text-center" id="productName">
-                    
+            <div class="col card m-5 cardProduct">
+                
+                    <h2 class="card-header my-3 text-center">
+                    Merci d'avoir fait vos achats chez nous<br>
+                    Votre colis partira le plus tôt possible  !!!
                     </h2>
                     <div class="card-body">
-                        <img class="img-fluid imgProduct" id="productImg">
-                        <h4 class="card-text text-center m-5">
-                    
+                        
+                        <h4 class="card-text text-left m-5">
+                        Le montant de votre commande est de : € 
                         </h4>
-                        <h4 class="card-price text-end" id="productPrice"></h4>
+                        <h4 class="card-text text-left m-5">
+                        Votre numero de commande est le :
+                        </h4>
                     </div>
                 
             </div>
@@ -52,20 +67,18 @@
     </div>  
 
         <!-- Bouton Validation -->
-        <div class="card card_choix col-4  mx-auto mb-5 d-flex flex-row ">
-
-            <a class="btn retour bg-danger text-light  m-3" href="index.html">
-                <i class="fas fa-long-arrow-alt-left "></i>
-            Retour au magasin
-            </a>
-
-            <a class="btn validation bg-success text-light m-3" href="validation.html">
-              Valider votre commande
-            </a>
-        </div>
+ 
 
 
-
+    <!--Partie footer-->
+    <footer class="footer pt-4 pb-2 mb-3 mx-5 bg-white text-dark">
+        <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Mentions légales</a></li>
+        </ul>
+        
+        
+    </footer>
 
 
 
