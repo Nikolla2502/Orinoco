@@ -8,7 +8,7 @@ async function  teddies(){
     const articlesTeddies = await getArticlesTeddies()
     displayArticlesTeddies(articlesTeddies)
 }
-productTeddy.addEventListener('click', getArticlesTeddies )
+
 
 function getArticlesTeddies(){
     return fetch("http://localhost:3000/api/teddies")
@@ -23,12 +23,14 @@ function getArticlesTeddies(){
          alert(error)
      })
 }
+productTeddy.addEventListener('click', getArticlesTeddies )
+
 
 function displayArticlesTeddies(articleTeddies){
     document.getElementById("product").innerHTML=`
     <a href="" class="stretched-link" ></a>
     <h2 class="card-header my-3 text-center" id="productName">
-    Ours en peluche
+    ${articleTeddies.name}
     </h2>
     <div class="card-body">
         <img class="img-fluid imgProduct" id="productImg">

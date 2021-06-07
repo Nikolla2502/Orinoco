@@ -15,11 +15,13 @@
 
 
     <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico" />
     <title>Orinoco</title>
 </head>
 <body>
 
-    <!--   Header     -->
+
 
 
     <!--   Header     -->
@@ -34,20 +36,15 @@
             <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
                 <ul class="navbar-nav">
                     <li class="navbar-item active">
-                        <a class="nav-link menu" href="index.html">Accueil</a>
+                        <a class="nav-link menu fs-4 btn m-3" href="index.html">Accueil</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link menu" href="cart.html">
-                            Panier
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>
-                    </li>
+
                 </ul>
              </div>
         </nav>
     </header>
 
-      <!-- Fiche produit -->
+      <!-- Body = Fiche panier -->
 
     <div class="container">
         <div class="row">
@@ -68,21 +65,41 @@
           <!-- Formulaire identification client-->
           <form method="post" action="traitement.php">
             <p><label for="family_name">Votre Nom :
-              <input type="text" name="family_name" id="family_name" placeholder="Nom" size="10" /></label></p>
+              <input type="text" name="family_name" id="family_name" placeholder="Nom" size="10" required/></label></p>
             <p><label for="name">Votre Prenom :
-            <input type="text" name="name" id="name" placeholder="Prenom" size="10" /></label></p>
+            <input type="text" name="name" id="first_name" placeholder="Prenom" size="10"  required/></label></p>
+            <p><label for="adress_zipcode">Numero de rue :
+            <input type="number" name="adress_street_number" id="street_number" placeholder="Numero" size="10"  required/></label></p>
             <p><label for="adress_street">Votre Rue :
-            <input type="text" name="adress_street" id="adress_street" placeholder="Rue" size="60" /></label></p>
+            <input type="text" name="adress_street" id="adress_street" placeholder="Rue" size="60"  required/></label></p>
             <p><label for="adress_zipcode">Code Postal :
-            <input type="number" name="adress_zipcode" id="adress_zipcode" placeholder="Code Postal" size="10" /></label></p>
+            <input type="number" name="adress_zipcode" id="adress_zipcode" placeholder="Code Postal" size="10"  required/></label></p>
             <p><label for="adress_town">Ville :
-            <input type="text" name="adress_town" id="adress_town" placeholder="Ville" size="10" /></label></p>
+            <input type="text" name="adress_town" id="adress_town" placeholder="Ville" size="10"  required/></label></p>
             </form>
                     </div>
                 
             </div>
         </div>
     </div>  
+
+    <!-- Formulaire validation webinaire OC jsnews-->
+    <div class="container">
+        <h1>Contactez nous !</h1>
+        <div class="form row">
+            <div class="form-group col-12">
+                <label>E-mail</label>
+                <input type="email" name="mail" class="form-control" placeholder="Votrenom@mail.fr" required>
+            </div>
+            <div class="form-group col-12">
+                <label>Votre message</label>
+                <textarea name="message" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group col-12">
+                <input type="button" class="btn btn-primary col-12" value="envoyer">
+            </div>
+        </div>
+    </div>
 
         <!-- Bouton Validation -->
         <div class="card card_choix col-4  mx-auto mb-5 d-flex flex-row ">

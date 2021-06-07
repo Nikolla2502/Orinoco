@@ -15,7 +15,10 @@
 
 
     <link rel="stylesheet" href="css/style.css" />
+    
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico" />
     <title>Orinoco</title>
+    
 </head>
 <body>
 
@@ -34,7 +37,7 @@
             <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
                 <ul class="navbar-nav">
                     <li class="navbar-item active">
-                        <a class="nav-link menu" href="index.html">Accueil</a>
+                        <a class="nav-link menu fs-4 btn m-3" href="index.html">Accueil</a>
                     </li>
 
                 </ul>
@@ -46,14 +49,19 @@
 
     <div class="container">
         <div class="row">
-            <div class="col card m-5 cardProduct">
+            <div class="col card m-5 w-50 cardProduct">
                 
                     <h2 class="card-header my-3 text-center">
                     Merci d'avoir fait vos achats chez nous<br>
                     Votre colis partira le plus tôt possible  !!!
                     </h2>
                     <div class="card-body">
-                        
+                        <div class="text-center">
+                        <img class="img-fluid imgProduct text-center" id="teddiesImg" src="https://source.unsplash.com/random/300x300">
+                        </div>
+                        <h4 class="card-text text-left m-5">
+                            Vous avez commandé<span class="card-text text-left m-5 item_number"></span><span class="item_ordered"></span>
+                        </h4>
                         <h4 class="card-text text-left m-5">
                         Le montant de votre commande est de : € 
                         </h4>

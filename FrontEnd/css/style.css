@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
 
-body{
+body,.btn-bg{
     background-color: #f3e9f1;
     font-family: 'Cinzel', serif;
     font-weight: bold;
