@@ -48,21 +48,58 @@
 
     <div class="container">
         <div class="row">
-            <div class="col card m-5 cardProduct">
-                <h2 class="card-header my-3 text-center">
-                Personnalisez votre ourson
-                </h2>
-                <div row id="card-body_teddy">
-
-                    
-                </div>
-                    
+            <div class="col card m-5 cardProduct" id="teddies">
                 
-          
+                    <h2 class="card-header my-3 text-center" id="productName">
+                    Votre panier
+                    </h2>
+                    <div class="card-body">
+                        <img class="img-fluid imgProduct" id="productImg">
+                        <h4 class="card-text text-center m-5">
+                    
+                        </h4>
+                        <h4 class="card-price text-end" id="productPrice"></h4>
+                        <h1 class="card-title"><strong>Ours en peluche faits à la main </strong></h1>
+          Le montant de votre commande est de <span class="total_price"></span>€
 
+          <!-- Formulaire identification client-->
+          <form method="post" action="traitement.php">
+            <p><label for="family_name">Votre Nom :
+              <input type="text" name="family_name" id="family_name" placeholder="Nom" size="10" required/></label></p>
+            <p><label for="name">Votre Prenom :
+            <input type="text" name="name" id="first_name" placeholder="Prenom" size="10"  required/></label></p>
+            <p><label for="adress_zipcode">Numero de rue :
+            <input type="number" name="adress_street_number" id="street_number" placeholder="Numero" size="10"  required/></label></p>
+            <p><label for="adress_street">Votre Rue :
+            <input type="text" name="adress_street" id="adress_street" placeholder="Rue" size="60"  required/></label></p>
+            <p><label for="adress_zipcode">Code Postal :
+            <input type="number" name="adress_zipcode" id="adress_zipcode" placeholder="Code Postal" size="10"  required/></label></p>
+            <p><label for="adress_town">Ville :
+            <input type="text" name="adress_town" id="adress_town" placeholder="Ville" size="10"  required/></label></p>
+            </form>
+                    </div>
+                
+            </div>
+        </div>
+    </div>  
 
-
-  
+    <!-- Formulaire validation webinaire OC jsnews-->
+    <div class="container">
+        <h1>Contactez nous !</h1>
+        <div class="form row">
+            <div class="form-group col-12">
+                <label>E-mail</label>
+                <input type="email" name="mail" class="form-control" placeholder="Votrenom@mail.fr" required>
+            </div>
+            <div class="form-group col-12">
+                <label>Votre message</label>
+                <textarea name="message" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group col-12">
+                <input type="button" class="btn btn-primary col-12" value="envoyer">
+            </div>
+        </div>
+    </div>
 
         <!-- Bouton Validation -->
         <div class="card card_choix col-4  mx-auto mb-5 d-flex flex-row ">
@@ -91,7 +128,7 @@
 
 
     <!-- Bootstrapv5 CDN JS-->
-    <script src="js/cart.js"></script>
+    <script src="js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

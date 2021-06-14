@@ -26,18 +26,18 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-white text-dark">
             <a class="navbar-brand" href="index.html">
-                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3" src="media/orinoco.jpeg" alt="logo Orinoco">
+                <img class="col-lg-3  shadow offset-lg-3 col-md-6 offset-md-3" src="media/orinoco.jpeg" alt="logo Orinoco">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
                 <ul class="navbar-nav">
-                    <li class="navbar-item active">
-                        <a class="nav-link menu fs-4 btn m-3 btn-bg" href="index.html">Accueil</a>
+                    <li class="navbar-item">
+                        <a class="nav-link menu fs-4 btn m-3 btn-bg shadow" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link menu fs-4 btn m-3 btn-bg" href="cart.html">
+                        <a class="nav-link menu fs-4 btn m-3 btn-bg shadow" href="cart.html">
                             Panier
                             <img src="media/orinocoCut.jpeg" height="30rem">
                         </a>
@@ -51,45 +51,45 @@
 
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col card m-3 col-12 col-md-3 " id="cardProduct">
-            <a href="order.html" class="stretched-link" id="teddy"></a>
-                <h2 class="card-header my-3 text-center" id="teddiesName">
+            <div class="col card m-3 col-12 col-md-3 cardProductItem cardProductTeddies">
+            <a href="order.html" class="stretched-link"></a>
+                <h2 class="card-header my-3 text-center">
                   Ours en peluche
                 </h2>
-                <div class="card-body">
-                    <img class="img-fluid imgProduct" id="teddiesImg" src="https://source.unsplash.com/random/300x300">
+                <div class="card-body ">
+                    <img class="img-fluid shadow imgProduct" src="http://localhost:3000/images/teddy_1.jpg">
                     <h4 class="card-text text-center m-5">
                    Des ours en peluche
                     </h4>
-                    <h4 class="card-price text-end" id="teddiesPrice">50 €</h4>
+                    
                 </div>
             </div>
 
-        <div class="col card m-3 col-12 col-md-3 cardProduct">
-            <a href="order.html" class="stretched-link"  id="camera"></a>
-                <h2 class="card-header my-3 text-center"  id="cameraName">
+        <div class="col card m-3 col-12 col-md-3 cardProductItem cardProductCameras">
+            <a href="order.html" class="stretched-link" ></a>
+                <h2 class="card-header my-3 text-center" >
                     Camera Vintage
                 </h2>
                 <div class="card-body">
-                    <img class="img-fluid imgProduct"   id="cameraImg" src="https://source.unsplash.com/random/300x300">
+                    <img class="img-fluid shadow imgProduct" src="http://localhost:3000/images/vcam_1.jpg">
                     <h4 class="card-text text-center m-5">
                     Des cameras
                     </h4>
-                    <h4 class="card-price text-end"  id="cameraPrice">50€</h4>
+                    
                 </div>
         </div>
 
-        <div class="col card  m-3 col-12 col-md-3 cardProduct">
-            <a href="order.html" class="stretched-link" id="furniture"></a>
+        <div class="col card  m-3 col-12 col-md-3 cardProductItem cardProductFurnitures">
+            <a href="order.html" class="stretched-link"></a>
                 <h2 class="card-header my-3 text-center">
                     Meuble en chêne
                 </h2>
                 <div class="card-body">
-                    <img class="img-fluid imgProduct" src="https://source.unsplash.com/random/300x300">
+                    <img class="img-fluid shadow imgProduct" src="http://localhost:3000/images/oak_1.jpg">
                     <h4 class="card-text text-center m-5">
                     Des meubles
                     </h4>
-                    <h4 class="card-price text-end">50€</h4>
+                    
                 </div>
         </div>
         </div>
@@ -107,10 +107,11 @@
     </footer>
 
 
-
+    <!-- Script -->
+    
 
     <!-- Bootstrapv5 CDN JS-->
-    <script src="js/index1.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

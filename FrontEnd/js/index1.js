@@ -1,13 +1,17 @@
-const productTeddy = document.querySelector('#cardProduct');
-console.log(productTeddy)
-
+// const productTeddy = document.querySelector('.btnProduct');
+// console.log(productTeddy)
+// productTeddy.addEventListener('click', getArticlesTeddies )
 
 teddies()
 
 async function  teddies(){
-    const articlesTeddies = await getArticlesTeddies()
-    displayArticlesTeddies(articlesTeddies)
+const articlesTeddies = await getArticlesTeddies()
+    for(let i = 0; i < articlesTeddies.length; i++){
+        displayTeddies(teddy);
+    }
+
 }
+
 
 
 function getArticlesTeddies(){
@@ -17,27 +21,31 @@ function getArticlesTeddies(){
      })
      .then(function(articlesTeddies){
          console.log(articlesTeddies)
-        return articlesTeddies
+        return articlesTeddies;
      })
      .catch(function(error){
          alert(error)
      })
 }
-productTeddy.addEventListener('click', getArticlesTeddies )
 
 
-function displayArticlesTeddies(articleTeddies){
-    document.getElementById("product").innerHTML=`
-    <a href="" class="stretched-link" ></a>
+
+function displayTeddies(){
+    document.getElementById("cardProduct").innerHTML=`
+    
     <h2 class="card-header my-3 text-center" id="productName">
-    ${articleTeddies.name}
+    ${teddy[i].name}
     </h2>
     <div class="card-body">
-        <img class="img-fluid imgProduct" id="productImg">
-        <h4 class="card-text text-center m-5">
-    
-        </h4>
+        <img src="${articlesTeddies.imageUrl}" class="img-fluid imgProduct" id="productImg">
+        
         <h4 class="card-price text-end" id="productPrice">${articleTeddies.price}</h4>
-    
+    <p><label for="couleur">Votre couleur :</label>
+                            <select type="texte" placeholder="couleur" size="1">
+                                <option class="item">${articlesTeddies.colors[0]}</option>
+                                <option class="item">${articlesTeddies.colors[1]}</option>
+                                <option class="item">${articlesTeddies.colors[2]}</option>
+                                <option class="item">${articlesTeddies.colors[3]}</option>
+                            </select></p>
     `
 }
