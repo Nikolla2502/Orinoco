@@ -11,14 +11,14 @@ fetch('http://localhost:3000/api/teddies')
         let divContainer = document.createElement("div");
         divContainer.classList.add("bordure");
         divContainer.classList.add("col-lg-5");
-        divContainer.classList.add("mx-2");
-        divContainer.classList.add("my-2");
+        divContainer.classList.add("m-2");
+        
         container.appendChild(divContainer);
 
         
         let linkTeddy = document.createElement("a");
         linkTeddy.classList.add("stretched-link");
-        linkTeddy.href = "cart.html?id_teddy="+teddies[i]._id;
+        linkTeddy.href = "order.html?id_teddy="+teddies[i]._id;
         divContainer.appendChild(linkTeddy);
 
         
@@ -34,12 +34,14 @@ fetch('http://localhost:3000/api/teddies')
         imgTeddy.setAttribute('src', teddies[i].imageUrl);
         divContainer.appendChild(imgTeddy);
 
-        
+        let colorTeddy = document.createElement("h3");
+        colorTeddy.classList.add('color-teddy');
+        colorTeddy.innerHTML = "Couleurs Disponible : <br>" + teddies[i].colors;
+        divContainer.appendChild(colorTeddy);
+
         let priceTeddy = document.createElement("h4");
         priceTeddy.classList.add("card-price");
-        
         priceTeddy.innerHTML = (teddies[i].price / 100) + " €";
-        
         divContainer.appendChild(priceTeddy);
         
     }
