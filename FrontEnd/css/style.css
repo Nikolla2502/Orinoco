@@ -5,7 +5,7 @@ body,.btn-bg{
     font-family: 'Cinzel', serif;
     font-weight: bold;
 }
-.card-header, .cardProduct, .imgProduct, .cardValidation{
+.card-header, .cardProduct, .imgProduct, .cardValidation, .card{
     border-radius: 15px;
 }
 .cardProductItem, .cardValidation
@@ -42,7 +42,7 @@ body,.btn-bg{
     transform: scale(1.03);
     box-shadow:5px 5px 20px;
 }
-#teddies_container{
+#item_container{
     display: flex;
     justify-content: space-around;
     
@@ -60,4 +60,7 @@ select{
     background-color: #f3e9f1;
     border-bottom: solid 2px black;
     text-align: center;
+}
+input{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }

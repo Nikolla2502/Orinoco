@@ -1,4 +1,4 @@
-let containerTeddy = document.getElementById("card-body_teddy")
+let containerTeddy = document.getElementById("card-body")
 
 fetch('http://localhost:3000/api/teddies')
 .then(response => response.json())
@@ -58,6 +58,7 @@ fetch('http://localhost:3000/api/teddies')
     let numberTeddy = document.createElement("input");
     numberTeddy.setAttribute("type","number");
     numberTeddy.setAttribute("value","0");
+    numberTeddy.setAttribute("min","0");
     numberTeddy.classList.add("quantity");
     numberTeddy.classList.add("mx-5")
     divContainer.appendChild(numberTeddy);
@@ -69,6 +70,3 @@ fetch('http://localhost:3000/api/teddies')
     divContainer.appendChild(priceTeddy);
 });
 
-// fetch('http://localhost:3000/api/teddies')
-// .then(color => color.json());
-//    console.log(color);
