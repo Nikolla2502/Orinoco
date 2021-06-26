@@ -1,5 +1,22 @@
-let form = document.getElementById('form-group');
 
+// panier
+let itemName = document.getElementById('itemName');
+itemName.innerHTML = "ourson";
+
+let itemNumber = document.getElementById('itemNumber');
+itemNumber.innerHTML = "0";
+
+let unitPrice = document.getElementById('unitPrice');
+unitPrice.innerHTML = "€";
+
+let totalPrice = document.getElementById('totalPrice');
+totalPrice.innerHTML = "€";
+
+
+
+// Formulaire client
+
+let form = document.getElementById('form-group');
 
 let formNom = document.createElement("input");
 formNom.setAttribute("type","text");
@@ -53,3 +70,4 @@ form.appendChild(formEmail);
 
 let emailString = JSON.stringify(formEmail);
 localStorage.setItem('userEmail',emailString);
+console.log(emailString);
