@@ -1,21 +1,4 @@
-/* Recuperer param GET
-let productType = LeParametreGet;//type de produit
-let apiUrl;
 
-switch {
-    case 'teddy' :
-        apiUrl = urlApiTeddy;
-        break;
-    case 'camera' :
-        apiUrl = urlApiCamera;
-        break;
-    case 'furniture' :
-        apiUrl = urlApiFurniture;
-}
-
-fetch(apiUrl);
-
-*/
 // Teddies -------------------------------------------------------
 
 let containerTeddy = document.getElementById("item_container");
@@ -27,9 +10,10 @@ fetch('http://localhost:3000/api/teddies')
     for(let i = 0; i < teddies.length; i++){
 
         let divContainer = document.createElement("div");
-        divContainer.classList.add("bordure");
-        divContainer.classList.add("col-lg-5");
+        divContainer.classList.add("cardProductItem");
+        divContainer.classList.add("col-lg-3");
         divContainer.classList.add("m-2");
+        divContainer.classList.add("mb-5");
         containerTeddy.appendChild(divContainer);
         
         let linkTeddy = document.createElement("a");

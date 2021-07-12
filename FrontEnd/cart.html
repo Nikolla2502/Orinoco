@@ -28,20 +28,16 @@
     <!--   Header     -->
     <header>
         <nav class="navbar navbar-expand-lg bg-white text-dark">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand mx-auto" href="index.html">
                 <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3 shadow" src="media/orinoco.jpeg" alt="logo Orinoco">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
+            <div id="navbarContent" class="col-lg-3 col-6 offset-lg-3 col-md-12">
                 <ul class="navbar-nav">
                     <li class="navbar-item">
                         <a class="nav-link menu fs-4 btn btn-bg m-3 shadow" href="index.html">Accueil</a>
                     </li>
-
                 </ul>
-             </div>
+            </div>
         </nav>
     </header>
 
@@ -54,15 +50,17 @@
                 <table id="order_slip" class="border border-dark">
                     <tr class="order_slip_libelle ">
                         <th>Votre commande</th>
-                        <th>Nombre</th>
-                        <th>Prix Unitaire</th>
-                        <th>Prix Final</th>
+                        <th>Couleur</th>
+                        <!-- <th>Nombre</th> -->
+                        <!-- <th>Prix Unitaire</th> -->
+                        <th>Montant</th>
                     </tr>
                     <tr class="border border-dark">
-                        <td id="itemName" class="border border-dark ps-3"></td>
-                        <td id="itemNumber" class="border border-dark ps-3"></td>
-                        <td id="unitPrice" class="border border-dark ps-3"></td>
-                        <td id="totalPrice" class="border border-dark ps-3"></td>
+                        <td id="itemName" class="border border-dark ps-3 text-center"></td>
+                        <td id="itemColor" class="border border-dark ps-3 text-center"></td>
+                        <!-- <td id="itemNumber" class="border border-dark ps-3"></td> -->
+                        <td id="unitPrice" class="border border-dark ps-3 text-center"></td>
+                        <!-- <td id="totalPrice" class="border border-dark ps-3"></td> -->
                     </tr>
                 </table><br>
 
@@ -75,7 +73,14 @@
                 <div class="col card mx-5 w-50">
                     <h2 class ="text-center m-2">Votre contact</h2>
                 <form id="formulaire">
-                    <div class="d-flex flex-column mx-5" id="form-group">
+                    <div class="d-flex flex-column mx-5 " id="form-group" >
+
+                        <input id="name" type="text" placeholder="Nom" class="required mb-3 ps-3 lh-lg">
+                        <input id="firstname" type="text" placeholder="Prénom" class="required mb-3 ps-3 lh-lg">
+                        <input id="streetnumber" type="text" placeholder="N° et Rue" class="required mb-3 ps-3 lh-lg">
+                        <input id="zipcode" type="text" placeholder="Code Postal" class="required mb-3 ps-3 lh-lg">
+                        <input id="city" type="text" placeholder="Ville" class="required mb-3 ps-3 lh-lg">
+                        <input id="email" type="text" placeholder="Email" class="required mb-3 ps-3 lh-lg">
 
                     </div>
                 </form>
@@ -83,7 +88,7 @@
             </div>    
         </div>
         <div class="mx-auto text-center  m-5">
-        <a class="btn bg-success mx-auto text-light cardValidation " href="validation.html">
+        <a id="cartValidation" class="btn bg-success mx-auto text-light " href="validation.html">
             Valider la commande
           </a>
         </div>
