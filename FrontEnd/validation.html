@@ -34,10 +34,10 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 collapse navbar-collapse">
+            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12">
                 <ul class="navbar-nav">
                     <li class="navbar-item">
-                        <a class="nav-link menu fs-4 btn btn-bg m-3 shadow" href="index.html">Accueil</a>
+                        <a class="nav-link menu fs-4 btn btn-bg m-3 mt-3 w-auto btn-bg shadow" href="index.html">Accueil</a>
                     </li>
 
                 </ul>
@@ -52,21 +52,23 @@
             <div class="col card m-5 w-50 cardProduct">
                 
                     <h2 class="card-header my-3 text-center">
-                    Merci <span id="firstName"></span> d'avoir fait vos achats chez nous<br>
-                    Votre colis partira le plus tôt possible  !!!
+                    Merci <span id="firstName" class="text-decoration-underline"></span> d'avoir fait vos achats chez nous<br>
+                    Votre colis sera expedié <br>
+                    <span id="address" class="text-decoration-underline"></span><br>
+                    <span id="zipcode" class="text-decoration-underline"></span>
+                    <span id ="city" class="text-decoration-underline"></span><br>
                     </h2>
+                    
                     <div class="card-body">
-                        <div class="text-center">
-                        <img class="img-fluid imgProduct text-center w-25" id="teddiesImg" src="http://localhost:3000/images/teddy_1.jpg">
-                        </div>
+ 
                         <h4 class="card-text text-left m-5">
-                            Vous avez commandé<span class="card-text text-left m-5 item_number"></span><span class="item_ordered"></span>
+                            Vous avez commandé <span id="item_ordered"> </span>
                         </h4>
                         <h4 class="card-text text-left m-5">
-                        Le montant de votre commande est de : <span class="totalprice">  </span> 
+                        Le montant de votre commande est de : <span id="total_price">  </span> 
                         </h4>
                         <h4 class="card-text text-left m-5">
-                        Votre numero de commande est le :
+                        Votre numero de commande est le : <span id="id_order"> </span>
                         </h4>
                         
                     </div>

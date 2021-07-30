@@ -1,5 +1,4 @@
-
-// Teddies -------------------------------------------------------
+"use strict";
 
 let containerTeddy = document.getElementById("item_container");
 
@@ -40,6 +39,9 @@ fetch('http://localhost:3000/api/teddies')
         
     }
 })
-
-
-.catch(error => console.log(error));
+// .catch(error => console.log(error));
+.catch(error => {
+    document.getElementById('serverError').style.display = "contents";
+    
+    document.getElementById('teddyChoice').style.display ="none";
+})

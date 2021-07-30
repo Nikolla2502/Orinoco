@@ -75,12 +75,24 @@
                 <form id="formulaire">
                     <div class="d-flex flex-column mx-5 " id="form-group" >
 
-                        <input id="name" type="text" placeholder="Nom" class="required mb-3 ps-3 lh-lg">
-                        <input id="firstname" type="text" placeholder="Prénom" class="required mb-3 ps-3 lh-lg">
-                        <input id="streetnumber" type="text" placeholder="N° et Rue" class="required mb-3 ps-3 lh-lg">
-                        <input id="zipcode" type="text" placeholder="Code Postal" class="required mb-3 ps-3 lh-lg">
-                        <input id="city" type="text" placeholder="Ville" class="required mb-3 ps-3 lh-lg">
-                        <input id="email" type="text" placeholder="Email" class="required mb-3 ps-3 lh-lg">
+                        <input id="name" type="text" placeholder="Nom" class="required mb-1 ps-3 lh-lg">
+                        <div id="nameError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre nom</span></div>
+
+                        <input id="firstname" type="text" placeholder="Prénom" class="required mb-1 ps-3 lh-lg">
+                        <div id="firstnameError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre prénom</span></div>
+
+                        <input id="streetnumber" type="text" placeholder="N° et Rue" class="required mb-1 ps-3 lh-lg">
+                        <div id="streetnumberError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre adresse</span></div>
+
+                        <input id="zipcode" type="text" placeholder="Code Postal" class="required mb-1 ps-3 lh-lg">
+                        <div id="zipcodeError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre code postal</span></div>
+                        <div id="zipCodeFalse" class="mb-3 text-danger" style="display: none;"><span>Votre code postal n'est pas conforme</span></div>
+
+                        <input id="city" type="text" placeholder="Ville" class="required mb-1 ps-3 lh-lg">
+                        <div id="cityError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre ville</span></div>
+
+                        <input id="email" type="text" placeholder="Email" class="required mb-1 ps-3 lh-lg">
+                        <div id="emailError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre Email</span></div>
 
                     </div>
                 </form>

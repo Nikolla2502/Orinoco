@@ -1,29 +1,32 @@
-
-
+// localStorage.clear();
+console.log(typeof localStorage.cart);
 // choix du teddy -------------------
 
 let containerTeddy = document.getElementById("card-body");
 
 let choosenTeddy = new URLSearchParams (document.location.href.split('?')[1]);
-let url = choosenTeddy.get("id_teddy");
+let teddyId = choosenTeddy.get("id_teddy");
 
-fetch('http://localhost:3000/api/teddies/' + url)
+fetch('http://localhost:3000/api/teddies/' + teddyId)
 .then(response => response.json())
-.then(teddies => {
+.then(teddy => {
+    
+    localStorage.setItem('currentTeddy', JSON.stringify(teddy));
+
     let divContainer = document.createElement("div");
     divContainer.classList.add("col-lg-8");
     divContainer.classList.add("mx-auto");
     containerTeddy.appendChild(divContainer);
 
     let nameTeddy = document.createElement("h2");
-    nameTeddy.classList.add("card-name");
-    nameTeddy.innerHTML = teddies.name;
+    nameTeddy.id = ("card-name");
+    nameTeddy.innerHTML = teddy.name;
     divContainer.appendChild(nameTeddy);
   
 
     let imgTeddy = document.createElement("img");
     imgTeddy.classList.add("card-img");
-    imgTeddy.setAttribute('src', teddies.imageUrl);
+    imgTeddy.setAttribute('src', teddy.imageUrl);
     divContainer.appendChild(imgTeddy);
     
     let colorSelectText = document.createElement("h5");
@@ -33,7 +36,7 @@ fetch('http://localhost:3000/api/teddies/' + url)
 
     let colorSelect = document.createElement("select");
     colorSelect.classList.add("w-100");
-    colorSelect.classList.add("selectColor");
+    colorSelect.id = ("selectColor");
     divContainer.appendChild(colorSelect);
 
     let optionSelect = document.createElement("option");
@@ -41,62 +44,95 @@ fetch('http://localhost:3000/api/teddies/' + url)
     optionSelect.setAttribute('value', 0 );
     colorSelect.appendChild(optionSelect);
 
-    for (let i=0; i < teddies.colors.length; i++) {
+    for (let i=0; i < teddy.colors.length; i++) {
         let colorTeddy = document.createElement("option");
-        colorTeddy.innerHTML = teddies.colors[i];
+        colorTeddy.innerHTML = teddy.colors[i];
         colorTeddy.classList.add("option");
         colorTeddy.classList.add("optionColor");
         colorSelect.appendChild(colorTeddy);
     }
 
     let priceTeddy = document.createElement("h4");
-    priceTeddy.classList.add("card-price");
-    priceTeddy.innerHTML = (teddies.price / 100) + " €";
+    priceTeddy.id = ("card-price");
+    priceTeddy.classList.add("text-end");
+    priceTeddy.innerHTML = (teddy.price / 100) + " €";
     divContainer.appendChild(priceTeddy);
+
+
 });
 
 
 
-let addToCart = document.getElementById('addToCart');
+// let addToCart = document.getElementById('addToCart');
 
-addToCart.addEventListener('click', function () {
-    let teddy = {};
-    teddy.name = document.querySelector('.card-name').innerText;
-    
-    teddy.color = document.querySelector('select').value;
+document.getElementById('addToCart').addEventListener('click', function () {
+    colorTeddy = document.querySelector('select').value;
     
     let colorTeddyAlert;
 
-    if (teddy.color == 0) {
+    if (colorTeddy == 0) {
         colorTeddyAlert = document.querySelector('.colorSelectText');
         colorTeddyAlert.style="color:red;font-weight:bold;";
         colorTeddyAlert.innerText = 'Vous devez choisir une couleur !!';
         return;
     }
-    
     else {
-        let selectColor = document.querySelector('.selectColor');
-        selectColor.addEventListener('change', function() {
-        console.log('ok');
-        });
+      
+        
     }
 
-    teddy.price = document.querySelector('.card-price').innerHTML;
+    nameTeddy = document.getElementById('card-name').innerHTML;
+    priceTeddy = document.getElementById('card-price').innerHTML;
     
     
-    let cart =[];
-    cart.push(teddy.name, teddy.color, teddy.price);
-    localStorage.setItem('cart',cart);
+
+    let currentTeddy = JSON.parse(localStorage.currentTeddy);
     
-    // if (localStorageContientTableau) {
-    //     recuperer tableau
-    //     ajouter teddy au tableau
-    //     reenregistrer tableau dans localStorage
+    let teddy = {
+        id : teddyId,
+        name: currentTeddy.name,
+        color :colorTeddy,
+        price : priceTeddy
+        
+    };
+
+    let cart = typeof localStorage.cart != 'undefined' ? JSON.parse(localStorage.cart) : [];
+    cart.push(teddy);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    console.log(cart);
+
+    // alerte panier vide
+    // document.getElementById("cart");
+    if (cart != 'undefined'){
+
+        alert("Votre panier est vide")
+    }
+
+    // let cart = localStorage.cart;
+
+    // if (cart !== null){
+    //     // parser la variable cart pour convertir la chaine de caractere en tableau d'objet
+    //     cart.push(product);
+    //     localStorage.cart = JSON.stringify(cart);
+       
     // } else {
-    //     créer nouveau tableau
-    //     ajouter teddy au tableau
-    //     enregistrer tableau dans localStorage
+    //     localStorage.cart = [product];
+    //     localStorage.setItem('cart', JSON.stringify([product]));
+     
+    // }
+// if (cart contient qqchose) {
+    //     ajouter teddy au tableau cart : localStorage.cart.push(teddy);
+    // } else {
+    //     localStorage.cart = [teddy];
+    //     localStorage.setItem('cart', [teddy]);
     // }
 });
+
+    // let selectColor = document.getElementById('selectColor');
+    // selectColor.addEventListener('change', function() {
+    // console.log(selectColor);
+    // });
 
 
