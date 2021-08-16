@@ -1,7 +1,7 @@
 // localStorage.clear();
 console.log(typeof localStorage.cart);
 // choix du teddy -------------------
-
+displayArticleNumber();
 let containerTeddy = document.getElementById("card-body");
 
 let choosenTeddy = new URLSearchParams (document.location.href.split('?')[1]);
@@ -40,7 +40,7 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     divContainer.appendChild(colorSelect);
 
     let optionSelect = document.createElement("option");
-    optionSelect.innerHTML = "Choisissez votre couleur :";
+    // optionSelect.innerHTML = "Choisissez votre couleur :";
     optionSelect.setAttribute('value', 0 );
     colorSelect.appendChild(optionSelect);
 
@@ -55,6 +55,7 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     let priceTeddy = document.createElement("h4");
     priceTeddy.id = ("card-price");
     priceTeddy.classList.add("text-end");
+    priceTeddy.classList.add("mt-3");
     priceTeddy.innerHTML = (teddy.price / 100) + " €";
     divContainer.appendChild(priceTeddy);
 
@@ -83,7 +84,10 @@ document.getElementById('addToCart').addEventListener('click', function () {
 
     nameTeddy = document.getElementById('card-name').innerHTML;
     priceTeddy = document.getElementById('card-price').innerHTML;
-    
+
+    addToCartAlert = document.querySelector('.colorSelectText').innerText = "Votre article a bien été ajouté";
+     
+    // alert("Votre article a bien été ajouté");
     
 
     let currentTeddy = JSON.parse(localStorage.currentTeddy);
@@ -92,23 +96,20 @@ document.getElementById('addToCart').addEventListener('click', function () {
         id : teddyId,
         name: currentTeddy.name,
         color :colorTeddy,
-        price : priceTeddy
+        price : currentTeddy.price
         
     };
 
-    let cart = typeof localStorage.cart != 'undefined' ? JSON.parse(localStorage.cart) : [];
-    cart.push(teddy);
-
-    localStorage.setItem('cart', JSON.stringify(cart));
     
-    console.log(cart);
+    let cart = getCart();
+    cart.push(teddy);
+    localStorage.setItem('cart', JSON.stringify(cart));
 
-    // alerte panier vide
-    // document.getElementById("cart");
-    if (cart != 'undefined'){
+    // affichage nombre items dans le cart
+    displayArticleNumber();
+   
 
-        alert("Votre panier est vide")
-    }
+});
 
     // let cart = localStorage.cart;
 
@@ -128,11 +129,19 @@ document.getElementById('addToCart').addEventListener('click', function () {
     //     localStorage.cart = [teddy];
     //     localStorage.setItem('cart', [teddy]);
     // }
-});
 
-    // let selectColor = document.getElementById('selectColor');
-    // selectColor.addEventListener('change', function() {
-    // console.log(selectColor);
-    // });
+
+    //panier vide
+    // localStorage.getItem('cart');
+    // if ('cart' == undefined) {
+    //     event.preventDefault();
+    //    alert('Votre panier est vide');
+    // }
+
+
+
+
+ 
+
 
 

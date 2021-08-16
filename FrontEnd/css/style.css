@@ -6,6 +6,12 @@ body,.btn-bg{
     font-weight: bold;
 }
 
+.navbarContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .card-header, .cardProduct, .imgProduct, #cartValidation, .card{
     border-radius: 15px;
 }
@@ -37,26 +43,6 @@ body,.btn-bg{
     margin-top: 1.5rem;
     margin-bottom: 1.2rem;
 }
-#cartValidation
-{
-    transform: scale(1);
-    transition: transform 200ms;
-}
-#cartValidation:hover
-{
-    transform: scale(1.03);
-    box-shadow:5px 5px 20px;
-}
-
-#item_container{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 100px;
-}
-
-select{
-    width: 200px;
-}
 
 .quantity{
     width: 50px;
@@ -69,7 +55,38 @@ select{
     text-align: center;
 }
 
-input{
+/* ####################### */
+/*######## ID  #########*/
+/* ####################   */
+
+#cartValidation, #addToCart, #cart, #index
+{
+    transform: scale(1);
+    transition: transform 200ms;
+}
+#cartValidation:hover, #addToCart:hover, #cart:hover,  #index:hover
+{
+    transform: scale(1.1);
+    box-shadow:5px 5px 20px;
+    color: black;
+}
+
+#item_container, #cart{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 100px;
+}
+
+
+/* ########################## */
+/* ####           ##########  */
+/* ########################## */
+select{
+    width: 200px;
+}
+
+
+input {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 5px;
 }

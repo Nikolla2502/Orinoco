@@ -27,12 +27,16 @@
 
     <!--   Header     -->
     <header>
-        <nav class="navbar navbar-expand-lg bg-white text-dark">
-            <a class="navbar-brand mx-auto" href="index.html">
-                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3 shadow" src="media/orinoco.jpeg" alt="logo Orinoco">
-            </a>
-
-        </nav>
+        <div class="navbar navbar-expand-lg bg-white text-dark">
+            <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3 shadow img-fluid" src="media/orinoco.jpeg" alt="logo Orinoco">
+            <div id="navbarContent" class="m-auto">
+                <a id="cart" class="nav-link menu fs-4 btn m-auto my-3 w-auto btn-bg shadow" href="cart.html">
+                    Panier
+                <img src="media/orinocoCut.jpeg" height="30rem" class="mx-3">
+                <span id="cartLength" class="cart_lenght"></span>
+                </a>
+            </div>
+        </div>
     </header>                
       <!-- Fiche produit -->
 
@@ -57,8 +61,9 @@
         
     </footer>
 
-    
+    <script src="js/utils.js"></script>
     <script src="js/index.js"></script>
+    
     <!-- Bootstrapv5 CDN JS-->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

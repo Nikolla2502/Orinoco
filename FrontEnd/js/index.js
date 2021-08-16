@@ -45,3 +45,5 @@ fetch('http://localhost:3000/api/teddies')
     
     document.getElementById('teddyChoice').style.display ="none";
 })
+
+displayArticleNumber();

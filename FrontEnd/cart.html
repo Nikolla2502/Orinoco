@@ -29,47 +29,44 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-white text-dark">
             <a class="navbar-brand mx-auto" href="index.html">
-                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3 shadow" src="media/orinoco.jpeg" alt="logo Orinoco">
+                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-xs-6 offset-xs-6 shadow img-fluid" src="media/orinoco.jpeg" alt="logo Orinoco">
             </a>
-            <div id="navbarContent" class="col-lg-3 col-6 offset-lg-3 col-md-12">
-                <ul class="navbar-nav">
+            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-6 col-sm-6 mx-auto">
+                <ul class="navbar-nav ">
                     <li class="navbar-item">
-                        <a class="nav-link menu fs-4 btn btn-bg m-3 shadow" href="index.html">Accueil</a>
+                        <a id="index" class="nav-link menu fs-4 btn btn-bg m-3 shadow" href="index.html">Accueil</a>
                     </li>
                 </ul>
+                
             </div>
         </nav>
     </header>
 
       <!-- Fiche produit -->
-
-    <div class="container">
+    <div id="cartError" class="container m-5">
+        <div class="row" class="mx-auto">
+            <p class="fs-1 text-center p-auto bg-white">Votre panier est vide !!!</p>
+        </div>
+    </div>
+    <div id="cartContent" class="container" style="display:none">
         <div class="row">
             <div class="col card m-5 w-50 cardProduct">
-              <h2 class ="text-center m-2">Votre panier</h2>  
+              <h2 class ="text-center m-2">Votre panier</h2>
                 <table id="order_slip" class="border border-dark">
-                    <tr class="order_slip_libelle ">
-                        <th>Votre commande</th>
-                        <th>Couleur</th>
-                        <!-- <th>Nombre</th> -->
-                        <!-- <th>Prix Unitaire</th> -->
-                        <th>Montant</th>
-                    </tr>
-                    <tr class="border border-dark">
-                        <td id="itemName" class="border border-dark ps-3 text-center"></td>
-                        <td id="itemColor" class="border border-dark ps-3 text-center"></td>
-                        <!-- <td id="itemNumber" class="border border-dark ps-3"></td> -->
-                        <td id="unitPrice" class="border border-dark ps-3 text-center"></td>
-                        <!-- <td id="totalPrice" class="border border-dark ps-3"></td> -->
-                    </tr>
+                    <thead>
+                        <tr class="order_slip_libelle ">
+                            <th>Votre commande</th>
+                            <th>Couleur</th>
+                            <th>Montant</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartTeddy">
+                    </tbody>
                 </table><br>
-
-                    
-                    <p class="text-center">Montant total de votre commande :<br>0000 €</p>
-
-                
+                <p class="text-center">Montant total de votre commande :<br><span id ="totalPrice"></span></p>
             </div>
-            <div class="row mx-auto" id="formulaire">
+            
+            <div id="formulaire" class="row mx-auto">
                 <div class="col card mx-5 w-50">
                     <h2 class ="text-center m-2">Votre contact</h2>
                 <form id="formulaire">
@@ -91,8 +88,9 @@
                         <input id="city" type="text" placeholder="Ville" class="required mb-1 ps-3 lh-lg">
                         <div id="cityError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre ville</span></div>
 
-                        <input id="email" type="text" placeholder="Email" class="required mb-1 ps-3 lh-lg">
+                        <input id="email" type="email" placeholder="Email" class="required mb-1 ps-3 lh-lg">
                         <div id="emailError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre Email</span></div>
+                        <div id="emailFalse" class="mb-3 text-danger" style="display: none;"><span>Votre adresse Email n'est pas conforme</span></div>
 
                     </div>
                 </form>
@@ -124,6 +122,8 @@
 
     <!-- Bootstrapv5 CDN JS-->
     <script src="js/cart.js"></script>
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

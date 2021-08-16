@@ -1,18 +1,81 @@
 
-// panier
-let itemName = document.getElementById('itemName');
-itemName.innerHTML = localStorage.getItem('cart','nameTeddy');
 
-let itemColor = document.getElementById('itemColor');
-itemColor.innerHTML = localStorage.getItem('cart',[2]);
 
-let unitPrice = document.getElementById('unitPrice');
-unitPrice.innerHTML = localStorage.getItem('cart',[3]);
+// affichage panier js
 
-localStorage.getItem('cart');
-if ('cart' == null) {
-    alert('Votre panier est vide')
+/** Recuperer le contenu du panier */
+/** Debut boucle sur le contenu du panier */
+/** Créer nouvelle TR */
+let newTeddy =JSON.parse(localStorage.cart);
+
+for (const teddy of newTeddy){
+    
 }
+for (let i=0; i < newTeddy.length; i++){
+
+    let cartTeddy = document.getElementById("cartTeddy");
+
+
+
+    document.getElementById('cartContent').style.display = "contents";
+    document.getElementById('cartError').style.display = "none";
+
+
+    let rowTeddy = document.createElement("tr");
+    cartTeddy.appendChild(rowTeddy);
+
+
+    let nameTeddy = document.createElement("td");
+    nameTeddy.classList.add("text-center");
+    nameTeddy.classList.add("border");
+    nameTeddy.classList.add("border-dark");
+    nameTeddy.innerHTML = newTeddy[i].name;
+    rowTeddy.appendChild(nameTeddy);
+
+    let colorTeddy = document.createElement("td");
+    colorTeddy.classList.add("text-center");
+    colorTeddy.classList.add("border");
+    colorTeddy.classList.add("border-dark");
+    colorTeddy.innerHTML = newTeddy[i].color;
+    rowTeddy.appendChild(colorTeddy);
+
+    let priceTeddy = document.createElement("td");
+    priceTeddy.classList.add("text-center");
+    priceTeddy.classList.add("border");
+    priceTeddy.classList.add("border-dark");
+    priceTeddy.innerHTML = newTeddy[i].price/100 + " €";
+    rowTeddy.appendChild(priceTeddy);
+    
+
+
+    /** calculer prix total */
+    
+    if(typeof totalPrice != 'undefined') {
+        totalPrice += newTeddy[i].price ;
+    } else {
+        let totalPrice = newTeddy[i].price;
+        
+
+    }
+    console.log(typeof totalPrice);
+    let parsedPrice = parseInt(totalPrice, 10);
+    console.log(typeof parsedPrice);
+
+
+    
+    
+
+    
+    document.getElementById('totalPrice').innerHTML = parsedPrice ;
+
+}
+
+
+/** construire le tableau d'id teddy */
+/** Fin de la boucle */
+
+
+
 
 
 
@@ -64,12 +127,17 @@ formValidation.onclick = function (event){
 
     let email = document.getElementById('email');
     let emailString = email.value;
-
+    let emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
     if (emailString == 0) {
         hasError = true;
         document.getElementById('emailError').style = "display = contents";
     }
-    
+    else if (!emailRegexp.test(emailString)) {
+        hasError = true;
+        document.getElementById('emailFalse').style = "display = contents";
+    }
+
     if (hasError) {
         event.preventDefault();
     } else {
@@ -84,6 +152,6 @@ formValidation.onclick = function (event){
 };
 
 
-// afficher panier vide
+
 
 
