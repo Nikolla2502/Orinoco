@@ -77,6 +77,9 @@ body,.btn-bg{
     margin-bottom: 100px;
 }
 
+#totalPrice {
+    font-size: 1.5rem;
+}
 
 /* ########################## */
 /* ####           ##########  */

@@ -27,6 +27,7 @@ fetch('http://localhost:3000/api/teddies')
          
         let imgTeddy = document.createElement("img");
         imgTeddy.classList.add("card-img");
+        imgTeddy.classList.add("img-fluid");
         imgTeddy.setAttribute('src', teddies[i].imageUrl);
         divContainer.appendChild(imgTeddy);
 

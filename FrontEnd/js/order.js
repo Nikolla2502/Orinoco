@@ -26,6 +26,7 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
 
     let imgTeddy = document.createElement("img");
     imgTeddy.classList.add("card-img");
+    imgTeddy.classList.add("img-fluid");
     imgTeddy.setAttribute('src', teddy.imageUrl);
     divContainer.appendChild(imgTeddy);
     
@@ -79,7 +80,7 @@ document.getElementById('addToCart').addEventListener('click', function () {
     }
     else {
       
-        
+
     }
 
     nameTeddy = document.getElementById('card-name').innerHTML;
@@ -111,32 +112,6 @@ document.getElementById('addToCart').addEventListener('click', function () {
 
 });
 
-    // let cart = localStorage.cart;
-
-    // if (cart !== null){
-    //     // parser la variable cart pour convertir la chaine de caractere en tableau d'objet
-    //     cart.push(product);
-    //     localStorage.cart = JSON.stringify(cart);
-       
-    // } else {
-    //     localStorage.cart = [product];
-    //     localStorage.setItem('cart', JSON.stringify([product]));
-     
-    // }
-// if (cart contient qqchose) {
-    //     ajouter teddy au tableau cart : localStorage.cart.push(teddy);
-    // } else {
-    //     localStorage.cart = [teddy];
-    //     localStorage.setItem('cart', [teddy]);
-    // }
-
-
-    //panier vide
-    // localStorage.getItem('cart');
-    // if ('cart' == undefined) {
-    //     event.preventDefault();
-    //    alert('Votre panier est vide');
-    // }
 
 
 

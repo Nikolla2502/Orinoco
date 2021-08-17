@@ -7,7 +7,7 @@ function displayArticleNumber() {
 
     if (cart.length) {
         let itemNumber = document.getElementById('cartLength');
-        itemNumber.style = "display : contents;";
+        itemNumber.style =null;
         itemNumber.innerHTML = cart.length;
     } else {
         let itemNumber = document.getElementById('cartLength');

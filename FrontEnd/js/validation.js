@@ -14,7 +14,7 @@ zipCode.innerHTML = localStorage.getItem('userZipCode');
 city.innerHTML = localStorage.getItem('userCity');
 
 itemOrdered.innerHTML = localStorage.getItem('nameTeddy');
-totalPrice.innerHTML = localStorage.getItem('priceTeddy');
+totalPrice.innerHTML = localStorage.getItem('calculatedPrice')/100 + " €";
 
 localStorage.removeItem('cart');
 

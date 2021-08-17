@@ -11,6 +11,10 @@ let newTeddy =JSON.parse(localStorage.cart);
 for (const teddy of newTeddy){
     
 }
+
+let calculatedPrice = 0;
+
+
 for (let i=0; i < newTeddy.length; i++){
 
     let cartTeddy = document.getElementById("cartTeddy");
@@ -46,34 +50,14 @@ for (let i=0; i < newTeddy.length; i++){
     priceTeddy.innerHTML = newTeddy[i].price/100 + " €";
     rowTeddy.appendChild(priceTeddy);
     
-
-
     /** calculer prix total */
-    
-    if(typeof totalPrice != 'undefined') {
-        totalPrice += newTeddy[i].price ;
-    } else {
-        let totalPrice = newTeddy[i].price;
-        
-
-    }
-    console.log(typeof totalPrice);
-    let parsedPrice = parseInt(totalPrice, 10);
-    console.log(typeof parsedPrice);
-
-
-    
-    
-
-    
-    document.getElementById('totalPrice').innerHTML = parsedPrice ;
-
+    calculatedPrice += Number(newTeddy[i].price);
 }
 
-
+document.getElementById('totalPrice').innerHTML = calculatedPrice/100 + " €" ;
 /** construire le tableau d'id teddy */
 /** Fin de la boucle */
-
+localStorage.setItem('calculatedPrice',calculatedPrice);
 
 
 
@@ -110,7 +94,7 @@ formValidation.onclick = function (event){
     let zipCodeString = zipCode.value;
     if (zipCodeString == 0) {
         hasError = true;
-        document.getElementById('zipcodeError').style = "display = contents";
+        document.getElementById('zipcodeError').style.display = null;
     } 
     else if (isNaN(zipCodeString)) {
         hasError = true;
