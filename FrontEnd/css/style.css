@@ -16,6 +16,7 @@ body,.btn-bg{
     border-radius: 15px;
 }
 
+
 .cardProductItem {
     
     box-shadow:2px 2px 10px;
@@ -32,17 +33,7 @@ body,.btn-bg{
     object-fit: cover;
     height: 300px;
 }
-.card-price{
-    text-align: right;
-    margin-right: 2rem ;
-    margin-top: 2rem;
-}
-.card-name{
-    background-color: white;
-    text-align: center;
-    margin-top: 1.5rem;
-    margin-bottom: 1.2rem;
-}
+
 
 .quantity{
     width: 50px;
@@ -81,6 +72,12 @@ body,.btn-bg{
     font-size: 1.5rem;
 }
 
+#cartLength {
+    font-size:1rem;
+    color: white;
+    position: relative;
+    right: 35px;
+}
 /* ########################## */
 /* ####           ##########  */
 /* ########################## */

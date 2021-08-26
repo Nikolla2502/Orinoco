@@ -23,29 +23,20 @@
 <body>
 
 
-
-
     <!--   Header     -->
     <header>
-        <nav class="navbar navbar-expand-lg bg-white text-dark">
-            <a class="navbar-brand mx-auto" href="index.html">
-                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-xs-6 offset-xs-6 shadow img-fluid" src="media/orinoco.jpeg" alt="logo Orinoco">
+        <div class="navbar navbar-expand-lg text-dark">
+            <a href="index.html" class="col-lg-3 offset-lg-3 col-md-6 offset-md-3">
+                <img src="media/orinoco.jpeg" class=" img-fluid" alt="logo Orinoco">
             </a>
-            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-6 col-sm-6 mx-auto">
-                <ul class="navbar-nav ">
-                    <li class="navbar-item">
-                        <a id="index" class="nav-link menu fs-4 btn btn-bg m-3 shadow" href="index.html">Accueil</a>
-                    </li>
-                </ul>
-                
-            </div>
-        </nav>
-    </header>
 
-      <!-- Fiche produit -->
-    <div id="cartError" class="container m-5">
-        <div class="row" class="mx-auto">
-            <p class="fs-1 text-center p-auto bg-white">Votre panier est vide !!!</p>
+        </div>
+    </header> 
+
+    <!-- Fiche produit -->
+    <div id="cartError" class="container my-5">
+        <div class="row mx-auto">
+            <p class="fs-1 text-center p-auto py-5 bg-white">Votre panier est vide !!!</p>
         </div>
     </div>
     <div id="cartContent" class="container" style="display:none">
@@ -63,37 +54,37 @@
                     <tbody id="cartTeddy">
                     </tbody>
                 </table><br>
-                <p class="text-center fs-5">Total de votre commande : <span id ="totalPrice"></span></p>
+                <p class="text-center fs-5 w-50 mx-auto">Total de votre commande : <span id ="totalPrice"></span></p>
             </div>
             
             <div id="formulaire" class="row mx-auto">
                 <div class="col card mx-5 w-50">
                     <h2 class ="text-center m-2">Votre contact</h2>
-                <form id="formulaire">
-                    <div class="d-flex flex-column mx-5 " id="form-group" >
+                    <form id="formulaire">
+                        <div class="d-flex flex-column mx-5 " id="form-group" >
 
-                        <input id="name" type="text" placeholder="Nom" class="required mb-1 ps-3 lh-lg">
-                        <div id="nameError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre nom</span></div>
+                            <input id="name" type="text" placeholder="Nom" class="required mb-1 ps-3 lh-lg">
+                            <div id="nameError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre nom</span></div>
 
-                        <input id="firstname" type="text" placeholder="Prénom" class="required mb-1 ps-3 lh-lg">
-                        <div id="firstnameError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre prénom</span></div>
+                            <input id="firstname" type="text" placeholder="Prénom" class="required mb-1 ps-3 lh-lg">
+                            <div id="firstnameError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre prénom</span></div>
 
-                        <input id="streetnumber" type="text" placeholder="N° et Rue" class="required mb-1 ps-3 lh-lg">
-                        <div id="streetnumberError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre adresse</span></div>
+                            <input id="streetnumber" type="text" placeholder="N° et Rue" class="required mb-1 ps-3 lh-lg">
+                            <div id="streetnumberError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre adresse</span></div>
 
-                        <input id="zipcode" type="text" placeholder="Code Postal" class="required mb-1 ps-3 lh-lg">
-                        <div id="zipcodeError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre code postal</span></div>
-                        <div id="zipCodeFalse" class="mb-3 text-danger" style="display: none;"><span>Votre code postal n'est pas conforme</span></div>
+                            <input id="zipcode" type="text" placeholder="Code Postal" class="required mb-1 ps-3 lh-lg">
+                            <div id="zipcodeError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre code postal</span></div>
+                            <div id="zipCodeFalse" class="mb-3 text-danger" style="display: none;"><span>Votre code postal n'est pas conforme</span></div>
 
-                        <input id="city" type="text" placeholder="Ville" class="required mb-1 ps-3 lh-lg">
-                        <div id="cityError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre ville</span></div>
+                            <input id="city" type="text" placeholder="Ville" class="required mb-1 ps-3 lh-lg">
+                            <div id="cityError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre ville</span></div>
 
-                        <input id="email" type="email" placeholder="Email" class="required mb-1 ps-3 lh-lg">
-                        <div id="emailError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre Email</span></div>
-                        <div id="emailFalse" class="mb-3 text-danger" style="display: none;"><span>Votre adresse Email n'est pas conforme</span></div>
+                            <input id="email" type="email" placeholder="Email" class="required mb-1 ps-3 lh-lg">
+                            <div id="emailError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre Email</span></div>
+                            <div id="emailFalse" class="mb-3 text-danger" style="display: none;"><span>Votre adresse Email n'est pas conforme</span></div>
 
-                    </div>
-                </form>
+                        </div>
+                    </form>
                 </div>
             </div>    
         </div>
@@ -121,6 +112,7 @@
 
 
     <!-- Bootstrapv5 CDN JS-->
+    <script src="js/utils.js"></script>
     <script src="js/cart.js"></script>
     
     

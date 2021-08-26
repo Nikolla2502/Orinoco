@@ -10,6 +10,9 @@ fetch('http://localhost:3000/api/teddies')
 
         let divContainer = document.createElement("div");
         divContainer.classList.add("cardProductItem");
+        divContainer.classList.add("d-flex");
+        divContainer.classList.add("flex-column");
+        divContainer.classList.add("justify-content-between");
         divContainer.classList.add("col-lg-3");
         divContainer.classList.add("m-2");
         divContainer.classList.add("mb-5");
@@ -22,6 +25,9 @@ fetch('http://localhost:3000/api/teddies')
         
         let nameTeddy = document.createElement("h2");
         nameTeddy.classList.add("card-name");
+        nameTeddy.classList.add("bg-light");
+        nameTeddy.classList.add("mt-3");
+        nameTeddy.classList.add("text-center");
         nameTeddy.innerHTML = teddies[i].name;
         divContainer.appendChild(nameTeddy);
          

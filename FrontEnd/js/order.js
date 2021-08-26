@@ -13,12 +13,14 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     
     localStorage.setItem('currentTeddy', JSON.stringify(teddy));
 
+// Creation du HTML avec les données reçues
     let divContainer = document.createElement("div");
     divContainer.classList.add("col-lg-8");
     divContainer.classList.add("mx-auto");
     containerTeddy.appendChild(divContainer);
 
     let nameTeddy = document.createElement("h2");
+    nameTeddy.classList.add("text-center");
     nameTeddy.id = ("card-name");
     nameTeddy.innerHTML = teddy.name;
     divContainer.appendChild(nameTeddy);
@@ -31,8 +33,8 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     divContainer.appendChild(imgTeddy);
     
     let colorSelectText = document.createElement("h5");
-    colorSelectText.classList.add("colorSelectText")
-    colorSelectText.innerHTML = "Choisissez votre couleur :";
+    colorSelectText.classList.add("colorSelectText");
+    colorSelectText.classList.add("text-center");
     divContainer.appendChild(colorSelectText);
 
     let colorSelect = document.createElement("select");
@@ -41,7 +43,7 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     divContainer.appendChild(colorSelect);
 
     let optionSelect = document.createElement("option");
-    // optionSelect.innerHTML = "Choisissez votre couleur :";
+    optionSelect.innerHTML = "Choisissez votre couleur :";
     optionSelect.setAttribute('value', 0 );
     colorSelect.appendChild(optionSelect);
 
@@ -63,13 +65,11 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
 
 });
 
-
-
-// let addToCart = document.getElementById('addToCart');
-
+// Ajout de la selction dans le panier
 document.getElementById('addToCart').addEventListener('click', function () {
     colorTeddy = document.querySelector('select').value;
-    
+
+// Alert couleur non choisi
     let colorTeddyAlert;
 
     if (colorTeddy == 0) {
@@ -79,16 +79,22 @@ document.getElementById('addToCart').addEventListener('click', function () {
         return;
     }
     else {
-      
-
+        document.getElementById("selectColor").addEventListener('change',function() {
+            document.querySelector('.colorSelectText').style.display = "none";
+        });
+        colorTeddyAlert = document.querySelector('.colorSelectText');
+        colorTeddyAlert.style="color:black;";
+        
+        
     }
 
     nameTeddy = document.getElementById('card-name').innerHTML;
     priceTeddy = document.getElementById('card-price').innerHTML;
-
+ 
+    // alert("Votre article a bien été ajouté");
     addToCartAlert = document.querySelector('.colorSelectText').innerText = "Votre article a bien été ajouté";
      
-    // alert("Votre article a bien été ajouté");
+   
     
 
     let currentTeddy = JSON.parse(localStorage.currentTeddy);

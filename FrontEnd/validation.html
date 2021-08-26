@@ -22,66 +22,44 @@
 </head>
 <body>
 
-    <!--   Header     -->
+<!--   Header     -->
+<header>
+    <div class="navbar navbar-expand-lg text-dark">
+        <a href="index.html" class="col-lg-3 offset-lg-3 col-md-6 offset-md-3">
+            <img src="media/orinoco.jpeg" class=" img-fluid" alt="logo Orinoco">
+        </a>
 
+    </div>
+</header> 
 
-    <!--   Header     -->
-    <header>
-        <nav class="navbar navbar-expand-lg bg-white text-dark">
-            <a class="navbar-brand mx-auto" href="index.html">
-                <img class="col-lg-3 offset-lg-3 col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-xs-6 offset-xs-6 shadow img-fluid" src="media/orinoco.jpeg" alt="logo Orinoco">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navbarContent" class="col-lg-3 offset-lg-3 col-md-12 mx-auto">
-                <ul class="navbar-nav">
-                    <li class="navbar-item">
-                        <a class="nav-link menu fs-4 btn btn-bg m-3 mt-3 w-auto btn-bg shadow" href="index.html">Accueil</a>
-                    </li>
-
-                </ul>
-             </div>
-        </nav>
-    </header>
-
-      <!-- Fiche produit -->
-
+    <!-- Fiche produit -->
     <div class="container">
         <div class="row">
             <div class="col card m-5 w-50 cardProduct">
-                
-                    <h2 class="card-header my-3 text-center">
+                <h2 class="card-header my-3 text-center">
                     Merci <span id="firstName" class="text-decoration-underline"></span> d'avoir fait vos achats chez nous<br>
                     Votre colis sera expedié <br>
                     <span id="address" class="text-decoration-underline"></span><br>
                     <span id="zipcode" class="text-decoration-underline"></span>
                     <span id ="city" class="text-decoration-underline"></span><br>
-                    </h2>
-                    
-                    <div class="card-body">
- 
-                        <h4 class="card-text text-left m-5">
-                            Vous avez commandé <span id="item_ordered"> </span>
-                        </h4>
-                        <h4 class="card-text text-left m-5">
-                        Le montant total de votre commande est de : <span id="total_price" class="fs-2">  </span> 
-                        </h4>
-                        <h4 class="card-text text-left m-5">
+                </h2>
+                <div class="card-body">
+                    <h4 class="card-text text-center m-5">
+                        Le montant total de votre commande est de : <span id="total_price" class="fs-2"> </span> 
+                    </h4>
+                    <h4 class="card-text text-center m-5">
                         Votre numero de commande est le : <span id="id_order"> </span>
-                        </h4>
-                        
-                    </div>
-                
+                    </h4>
+                    <h4 class="card-text text-center m-5">
+                        Un Email de confirmation vous sera envoyé à :<br>
+                        <span id="user_email" class="text-decoration-underline"></span>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>  
 
-        <!-- Bouton Validation -->
- 
-
-
-    <!--Partie footer-->
+<!--Partie footer-->
     <footer class="footer pt-4 pb-2 mb-3 mx-5 bg-white text-dark">
         <ul>
             <li><a href="#">Contact</a></li>

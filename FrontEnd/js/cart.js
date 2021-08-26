@@ -1,25 +1,27 @@
+// function addColumnToRow(text, row) 
+// {
+//     let nameTeddy = document.createElement("td");//renommer correctement les variables ;)
+//     nameTeddy.classList.add("text-center");
+//     nameTeddy.classList.add("border");
+//     nameTeddy.classList.add("border-dark");
+//     nameTeddy.innerHTML = cart[i].name;//changer avec le parametre ;)
+//     rowTeddy.appendChild(nameTeddy);
+// }
 
+function isTextInputValid(inputElement, regexp, message)
+{
 
-
-// affichage panier js
-
-/** Recuperer le contenu du panier */
-/** Debut boucle sur le contenu du panier */
-/** Créer nouvelle TR */
-let newTeddy =JSON.parse(localStorage.cart);
-
-for (const teddy of newTeddy){
-    
+    //retourner un booleen
 }
 
+let cart = getCart();
+let productIds = [];
+
 let calculatedPrice = 0;
+let cartTeddy = document.getElementById("cartTeddy");
 
-
-for (let i=0; i < newTeddy.length; i++){
-
-    let cartTeddy = document.getElementById("cartTeddy");
-
-
+for (let i=0; i < cart.length; i++){
+    //a chaque teddy, ajouter son ID dans une nouvelle ligne de l'array productIds
 
     document.getElementById('cartContent').style.display = "contents";
     document.getElementById('cartError').style.display = "none";
@@ -27,31 +29,32 @@ for (let i=0; i < newTeddy.length; i++){
 
     let rowTeddy = document.createElement("tr");
     cartTeddy.appendChild(rowTeddy);
-
+    
+    //addColumnToRow(cart[i].name, rowTeddy);
 
     let nameTeddy = document.createElement("td");
     nameTeddy.classList.add("text-center");
     nameTeddy.classList.add("border");
     nameTeddy.classList.add("border-dark");
-    nameTeddy.innerHTML = newTeddy[i].name;
+    nameTeddy.innerHTML = cart[i].name;
     rowTeddy.appendChild(nameTeddy);
 
     let colorTeddy = document.createElement("td");
     colorTeddy.classList.add("text-center");
     colorTeddy.classList.add("border");
     colorTeddy.classList.add("border-dark");
-    colorTeddy.innerHTML = newTeddy[i].color;
+    colorTeddy.innerHTML = cart[i].color;
     rowTeddy.appendChild(colorTeddy);
 
     let priceTeddy = document.createElement("td");
     priceTeddy.classList.add("text-center");
     priceTeddy.classList.add("border");
     priceTeddy.classList.add("border-dark");
-    priceTeddy.innerHTML = newTeddy[i].price/100 + " €";
+    priceTeddy.innerHTML = cart[i].price/100 + " €";
     rowTeddy.appendChild(priceTeddy);
     
     /** calculer prix total */
-    calculatedPrice += Number(newTeddy[i].price);
+    calculatedPrice += Number(cart[i].price);
 }
 
 document.getElementById('totalPrice').innerHTML = calculatedPrice/100 + " €" ;
@@ -67,6 +70,17 @@ localStorage.setItem('calculatedPrice',calculatedPrice);
 let formValidation = document.getElementById('cartValidation');
 
 formValidation.onclick = function (event){
+    // if (
+    //     isTextInputValid('name', regexpName, 'Le champs prenom')
+    //     && isTextInputValid('lastname', regexpName, 'Le champs nom')
+    //     && isTextInputValid('email', regexpName, 'Le champs email')
+    // ) {
+
+    // }
+    // else {
+
+    // }
+    // event.preventDefault();
     let hasError = false;
 
     let name = document.getElementById('name');
@@ -133,9 +147,39 @@ formValidation.onclick = function (event){
         localStorage.setItem('userCity',cityString);
         localStorage.setItem('userEmail',emailString);
     }
+
+// Post ######################################################
+
+let order = {
+    contact : {
+      firstName: firstNameString,
+      lastName: nameString,
+      address: streetNumberString + ' ' + zipCodeString,
+      city: cityString,
+      email: emailString
+    },
+    products: productIds,
+    
+  };
+fetch('http://localhost:3000/api/teddies/order', {
+    method: "POST",
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(order),
+    }) 
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+
+        throw Error;
+    })
+    .then(response => {
+        
+        console.log(response);
+    })
+    .catch(error => console.log(error));
+
 };
-
-
-
-
-
