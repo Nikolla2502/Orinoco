@@ -85,7 +85,7 @@ formValidation.onclick = function (event){
 
     let name = document.getElementById('name');
     let nameString = name.value;
-    let nameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' ]/;
+    let nameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
     if (nameString == 0) {
         hasError = true;
         document.getElementById('nameError').style = "display = contents";
@@ -97,7 +97,7 @@ formValidation.onclick = function (event){
 
     let firstName = document.getElementById('firstName');
     let firstNameString = firstName.value;
-    let firstNameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' ]/;
+    let firstNameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
     if (firstNameString == 0) {
         hasError = true;
         document.getElementById('firstNameError').style = "display = contents";
@@ -110,34 +110,43 @@ formValidation.onclick = function (event){
 
     let streetNumber = document.getElementById('streetnumber');
     let streetNumberString = streetNumber.value;
+    let streetNumberRegexp = /^([0-9]{1,3}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç' \-]+))$/;
     if (streetNumberString == 0) {
         hasError = true;
         document.getElementById('streetnumberError').style = "display = contents";
     } 
+    else if (!streetNumberRegexp.test(streetNumberString)){
+        hasError = true;
+        document.getElementById('streetnumberFalse').style = "display = contents";
+    }
 
     let zipCode = document.getElementById('zipcode');
     let zipCodeString = zipCode.value;
+    let zipCodeRegexp = /[0-9]{5}/;
     if (zipCodeString == 0) {
         hasError = true;
         document.getElementById('zipcodeError').style.display = null;
     } 
-    else if (isNaN(zipCodeString)) {
+    else if (!zipCodeRegexp.test(zipCodeString)) {
         hasError = true;
         document.getElementById('zipCodeFalse').style = "display = contents";
     }
  
     let city = document.getElementById('city');
     let cityString = city.value;
-
+    let cityRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' ]/;
     if (cityString == 0) {
         hasError = true;
         document.getElementById('cityError').style = "display = contents";
+    }
+    else if (!cityRegexp.test(cityString)) {
+        hasError = true;
+        document.getElementById('cityFalse').style = "display = contents";
     }
 
     let email = document.getElementById('email');
     let emailString = email.value;
     let emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    
     if (emailString == 0) {
         hasError = true;
         document.getElementById('emailError').style = "display = contents";
