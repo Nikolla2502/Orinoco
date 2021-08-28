@@ -85,17 +85,28 @@ formValidation.onclick = function (event){
 
     let name = document.getElementById('name');
     let nameString = name.value;
+    let nameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' ]/;
     if (nameString == 0) {
         hasError = true;
         document.getElementById('nameError').style = "display = contents";
     }
+    else if (!nameRegexp.test(nameString)){
+        hasError = true;
+        document.getElementById('nameFalse').style = "display = contents";
+    }
 
-    let firstName = document.getElementById('firstname');
+    let firstName = document.getElementById('firstName');
     let firstNameString = firstName.value;
+    let firstNameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' ]/;
     if (firstNameString == 0) {
         hasError = true;
-        document.getElementById('firstnameError').style = "display = contents";
+        document.getElementById('firstNameError').style = "display = contents";
     } 
+    else if (!firstNameRegexp.test(firstNameString)){
+        hasError = true;
+        document.getElementById('firstNameFalse').style = "display = contents";
+    }
+
 
     let streetNumber = document.getElementById('streetnumber');
     let streetNumberString = streetNumber.value;

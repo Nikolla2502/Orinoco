@@ -15,5 +15,5 @@ city.innerHTML = localStorage.getItem('userCity');
 totalPrice.innerHTML = localStorage.getItem('calculatedPrice')/100 + " €";
 email.innerHTML = localStorage.getItem('userEmail');
 
-localStorage.removeItem('cart');
+// localStorage.removeItem('cart');
 
