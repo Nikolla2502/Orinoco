@@ -66,24 +66,27 @@ function isTextInputValid(inputElement, regexp, message)
 
     //retourner un booleen
 }
+console.log(isTextInputValid);
 // formulaire client
 let formValidation = document.getElementById('cartValidation');
 
 formValidation.onclick = function (event){
-    if (
-        isTextInputValid('name', nameRegexp, 'Le champs Nom')
-        && isTextInputValid('firstName', firstNameRegexp, 'Le champs Prénom')
-        && isTextInputValid('streetNumber', streetNumberRegexp, 'Le champs N° et Rue')
-        && isTextInputValid('zipCode', zipCodeRegexp, 'Le champs Code Postal')
-        && isTextInputValid('city', cityRegexp, 'Le champs Ville')
-        && isTextInputValid('email', emailRegexp, 'Le champs Email')
-    ) {
+    // if (
+    //     isTextInputValid('name', nameRegexp, 'Le champs Nom')
+    //     && isTextInputValid('firstName', firstNameRegexp, 'Le champs Prénom')
+    //     && isTextInputValid('streetNumber', streetNumberRegexp, 'Le champs N° et Rue')
+    //     && isTextInputValid('zipCode', zipCodeRegexp, 'Le champs Code Postal')
+    //     && isTextInputValid('city', cityRegexp, 'Le champs Ville')
+    //     && isTextInputValid('email', emailRegexp, 'Le champs Email')
+    // ) {
 
-    }
-    else {
+    // }
+    // else if (isTextInputValid('name', nameRegexp, 'Le champs Nom') == false) {
+    //     document.getElementById('nameFalse').style = "display = contents";
+    // }
         
-    }
-    // event.preventDefault();
+    
+
     let hasError = false;
 
     let name = document.getElementById('name');
