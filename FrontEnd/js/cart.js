@@ -16,8 +16,11 @@ let calculatedPrice = 0;
 let cartTeddy = document.getElementById("cartTeddy");
 
 for (let i=0; i < cart.length; i++){
-    //a chaque teddy, ajouter son ID dans une nouvelle ligne de l'array productIds
-    
+    productIds.push(cart[i].id);
+    localStorage.setItem('idTeddy',productIds);
+    console.log(productIds);
+
+
     document.getElementById('cartContent').style.display = "contents";
     document.getElementById('cartError').style.display = "none";
     
@@ -61,31 +64,24 @@ localStorage.setItem('calculatedPrice',calculatedPrice);
 
 
 
-function isTextInputValid(inputElement, regexp, message)
+function isTextInputValid(inputElement, regexp, startMessage)
 {
-
-    //retourner un booleen
+    let hasError = false;
+// test si vide
+// message d'erreur si vide : startMessage + ' ne doit pas être vide'
+//tester si  conforme
+// message d'erreur si non conforme : startMessage + ' n\'est pas conforme'
+// ne pas oublier de passer hasError à true si une erreur est détectée
+// utiliser la propriete  nextElementSibling pour retrouver la div du message d'erreur
+    return hasError;
 }
+
 // formulaire client
 let formValidation = document.getElementById('cartValidation');
-
 formValidation.onclick = function (event){
-    if (
-        isTextInputValid('name', nameRegexp, 'Le champs Nom')
-        && isTextInputValid('firstName', firstNameRegexp, 'Le champs Prénom')
-        && isTextInputValid('streetNumber', streetNumberRegexp, 'Le champs N° et Rue')
-        && isTextInputValid('zipCode', zipCodeRegexp, 'Le champs Code Postal')
-        && isTextInputValid('city', cityRegexp, 'Le champs Ville')
-        && isTextInputValid('email', emailRegexp, 'Le champs Email')
-    ) {
-
-    }
-    else {
-        
-    }
-    // event.preventDefault();
+   
     let hasError = false;
-
+    
     let name = document.getElementById('name');
     let nameString = name.value;
     let nameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
@@ -97,7 +93,7 @@ formValidation.onclick = function (event){
         hasError = true;
         document.getElementById('nameFalse').style = "display = contents";
     }
-
+    
     let firstName = document.getElementById('firstName');
     let firstNameString = firstName.value;
     let firstNameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
@@ -109,20 +105,20 @@ formValidation.onclick = function (event){
         hasError = true;
         document.getElementById('firstNameFalse').style = "display = contents";
     }
-
-
-    let streetNumber = document.getElementById('streetnumber');
-    let streetNumberString = streetNumber.value;
-    let streetNumberRegexp = /^([0-9]{1,3}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç' \-]+))$/;
-    if (streetNumberString == 0) {
+    
+    
+    let addressNumber = document.getElementById('addressnumber');
+    let addressNumberString = addressNumber.value;
+    let addressNumberRegexp = /^([0-9]{1,3}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç' \-]+))$/;
+    if (addressNumberString == 0) {
         hasError = true;
-        document.getElementById('streetnumberError').style = "display = contents";
+        document.getElementById('addressError').style = "display = contents";
     } 
-    else if (!streetNumberRegexp.test(streetNumberString)){
+    else if (!addressNumberRegexp.test(addressNumberString)){
         hasError = true;
-        document.getElementById('streetnumberFalse').style = "display = contents";
+        document.getElementById('addressFalse').style = "display = contents";
     }
-
+    
     let zipCode = document.getElementById('zipcode');
     let zipCodeString = zipCode.value;
     let zipCodeRegexp = /[0-9]{5}/;
@@ -134,7 +130,7 @@ formValidation.onclick = function (event){
         hasError = true;
         document.getElementById('zipCodeFalse').style = "display = contents";
     }
- 
+    
     let city = document.getElementById('city');
     let cityString = city.value;
     let cityRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
@@ -146,7 +142,7 @@ formValidation.onclick = function (event){
         hasError = true;
         document.getElementById('cityFalse').style = "display = contents";
     }
-
+    
     let email = document.getElementById('email');
     let emailString = email.value;
     let emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -158,51 +154,59 @@ formValidation.onclick = function (event){
         hasError = true;
         document.getElementById('emailFalse').style = "display = contents";
     }
+    //##########Function Regex ###################################
+    // if (
+    //     isTextInputValid('name', nameRegexp, 'Le champs Nom')
+    //     && isTextInputValid(firstName, firstNameRegexp, 'Le champs Prénom')
+    //     && isTextInputValid('streetNumber', streetNumberRegexp, 'Le champs N° et Rue')
+    //     && isTextInputValid('zipCode', zipCodeRegexp, 'Le champs Code Postal')
+    //     && isTextInputValid('city', cityRegexp, 'Le champs Ville')
+    //     && isTextInputValid('email', emailRegexp, 'Le champs Email')
+    // ) {
 
+    // }
+    // else if (isTextInputValid('name', nameRegexp, 'Le champs Nom') == false) {
+    //     document.getElementById('nameFalse').style = "display = contents";
+    // }
+    //##########Function Regex ###################################
     if (hasError) {
         event.preventDefault();
     } else {
+        let order = {
+            contact : {
+                firstName: firstNameString,
+                lastName: nameString,
+                address: addressNumberString,
+                zipCode:zipCodeString,
+                city: cityString,
+                email: emailString
+            },
+            products: productIds,
         
-        localStorage.setItem('userName',nameString);
-        localStorage.setItem('userFirstName',firstNameString);
-        localStorage.setItem('userAdress',streetNumberString);
-        localStorage.setItem('userZipCode',zipCodeString);
-        localStorage.setItem('userCity',cityString);
-        localStorage.setItem('userEmail',emailString);
-    }
+        };
 
-// Post ######################################################
+        localStorage.setItem('contact', JSON.stringify(order.contact));
 
-let order = {
-    contact : {
-      firstName: firstNameString,
-      lastName: nameString,
-      address: streetNumberString + ' ' + zipCodeString,
-      city: cityString,
-      email: emailString
-    },
-    products: productIds,
+        fetch('http://localhost:3000/api/teddies/order', {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(order),
+        }) 
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
     
-  };
-fetch('http://localhost:3000/api/teddies/order', {
-    method: "POST",
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(order),
-    }) 
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-
-        throw Error;
-    })
-    .then(response => {
-        
-        console.log(response);
-    })
-    .catch(error => console.log(error));
-
+            throw Error;
+        })
+        .then(response => {
+            localStorage.setItem('contact', JSON.stringify(response.contact));
+            localStorage.setItem('orderId', response.orderId);
+            console.log(response);
+        })
+        .catch(error => console.log(error));
+    }
 };

@@ -61,7 +61,17 @@ body,.btn-bg{
     box-shadow:5px 5px 20px;
     color: black;
 }
-
+#index
+{
+    transform: scale(1);
+    transition: transform 200ms;
+}
+#index:hover
+{
+    transform: scale(1.1);
+    box-shadow:5px 5px 20px;
+    color: black;
+}
 #item_container, #cart{
     display: flex;
     justify-content: space-around;

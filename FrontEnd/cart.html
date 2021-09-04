@@ -26,7 +26,7 @@
     <!--   Header     -->
     <header>
         <div class="navbar navbar-expand-lg text-dark">
-            <a href="index.html" class="col-lg-3 offset-lg-3 col-md-3 offset-md-3 col-sm-8 offset-sm-2 col-8 offset-2 img-fluid">
+            <a id="index" href="index.html" class="col-lg-3 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-8 offset-2 img-fluid">
                 <img src="media/orinoco.jpeg" class=" img-fluid" alt="logo Orinoco">
             </a>
 
@@ -71,9 +71,9 @@
                             <div id="firstNameError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre prénom</span></div>
                             <div id="firstNameFalse" class="mb-3 text-danger" style="display: none;"><span>Votre prénom n'est pas conforme</span></div>
 
-                            <input id="streetnumber" type="text" placeholder="N° et Rue" class="required mb-1 ps-3 lh-lg">
-                            <div id="streetnumberError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre adresse</span></div>
-                            <div id="streetnumberFalse" class="mb-3 text-danger" style="display: none;"><span>Votre adresse n'est pas conforme</span></div>
+                            <input id="addressnumber" type="text" placeholder="N° et Rue" class="required mb-1 ps-3 lh-lg">
+                            <div id="addressError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre adresse</span></div>
+                            <div id="addressFalse" class="mb-3 text-danger" style="display: none;"><span>Votre adresse n'est pas conforme</span></div>
 
                             <input id="zipcode" type="text" placeholder="Code Postal" class="required mb-1 ps-3 lh-lg">
                             <div id="zipcodeError" class="mb-3 text-danger" style="display: none;"><span>Veuillez renseigner votre code postal</span></div>
@@ -117,7 +117,7 @@
 
     <!-- Bootstrapv5 CDN JS-->
     <script src="js/utils.js"></script>
-    <script src="js/cartRegex.js"></script>
+    <script src="js/cart.js"></script>
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
