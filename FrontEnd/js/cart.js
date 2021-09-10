@@ -18,7 +18,7 @@ let cartTeddy = document.getElementById("cartTeddy");
 for (let i=0; i < cart.length; i++){
     productIds.push(cart[i].id);
     localStorage.setItem('idTeddy',productIds);
-    console.log(productIds);
+
 
 
     document.getElementById('cartContent').style.display = "contents";
@@ -56,8 +56,7 @@ for (let i=0; i < cart.length; i++){
 }
 
 document.getElementById('totalPrice').innerHTML = calculatedPrice/100 + " €" ;
-/** construire le tableau d'id teddy */
-/** Fin de la boucle */
+
 localStorage.setItem('calculatedPrice',calculatedPrice);
 
 
@@ -171,6 +170,7 @@ formValidation.onclick = function (event){
     //##########Function Regex ###################################
     if (hasError) {
         event.preventDefault();
+        
     } else {
         let order = {
             contact : {
@@ -210,3 +210,13 @@ formValidation.onclick = function (event){
         .catch(error => console.log(error));
     }
 };
+
+
+// #################  Redirection    ##################//
+
+// let emptyCart = document.getElementById('cartValidation');
+// emptyCart.onclick = function (event) {
+//     event.preventDefault();
+//     location.href="index.html"; // Methode 1
+//     // location.replace("index.html") // Methode 2 (pas de retour à la page precedente possible)(remplace le href du html)
+// };
