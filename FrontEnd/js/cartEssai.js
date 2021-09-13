@@ -1,3 +1,10 @@
+
+let cart = getCart();
+let productIds = [];
+
+let calculatedPrice = 0;
+let cartTeddy = document.getElementById("cartTeddy");
+
 // function addColumnToRow(text, row) 
 // {
 //     let nameTeddy = document.createElement("td");//renommer correctement les variables ;)
@@ -7,17 +14,19 @@
 //     nameTeddy.innerHTML = cart[i].name;//changer avec le parametre ;)
 //     rowTeddy.appendChild(nameTeddy);
 // }
-
-let cart = getCart();
-let productIds = [];
-
-let calculatedPrice = 0;
-let cartTeddy = document.getElementById("cartTeddy");
-
 for (let i=0; i < cart.length; i++){
     productIds.push(cart[i].id);
     localStorage.setItem('idTeddy',productIds);
     
+    function addColumnToRow(text, row) 
+    {
+        let displayChoosenTeddy = document.createElement("td");//renommer correctement les variables ;)
+        displayChoosenTeddy.classList.add("text-center");
+        displayChoosenTeddy.classList.add("border");
+        displayChoosenTeddy.classList.add("border-dark");
+        displayChoosenTeddy.innerHTML = text;//changer avec le parametre ;)
+        rowTeddy.appendChild(displayChoosenTeddy);
+    }
 
 
     document.getElementById('cartContent').style.display = "contents";
@@ -28,29 +37,9 @@ for (let i=0; i < cart.length; i++){
     cartTeddy.appendChild(rowTeddy);
     
     //addColumnToRow(cart[i].name, rowTeddy);
-    
-    let nameTeddy = document.createElement("td");
-    nameTeddy.classList.add("text-center");
-    nameTeddy.classList.add("border");
-    nameTeddy.classList.add("border-dark");
-    nameTeddy.innerHTML = cart[i].name;
-    rowTeddy.appendChild(nameTeddy);
-    
-    let colorTeddy = document.createElement("td");
-    colorTeddy.classList.add("text-center");
-    colorTeddy.classList.add("border");
-    colorTeddy.classList.add("border-dark");
-    colorTeddy.innerHTML = cart[i].color;
-    rowTeddy.appendChild(colorTeddy);
-    
-    let priceTeddy = document.createElement("td");
-    priceTeddy.classList.add("text-center");
-    priceTeddy.classList.add("border");
-    priceTeddy.classList.add("border-dark");
-    priceTeddy.innerHTML = cart[i].price/100 + " €";
-    rowTeddy.appendChild(priceTeddy);
-    
-    /** calculer prix total */
+    addColumnToRow(cart[i].name,rowTeddy);
+    addColumnToRow(cart[i].color,rowTeddy);
+    addColumnToRow(cart[i].price/100 + " €",rowTeddy);
     calculatedPrice += Number(cart[i].price);
 }
 
@@ -66,7 +55,7 @@ localStorage.setItem('calculatedPrice',calculatedPrice);
 function isTextInputValid(inputId, regexp, startMessage)
 {
     let inputElement = document.getElementById(inputId);
-    console.log(inputElement);
+    
     let hasError = false;
     // test si vide
     if(inputElement.value == ""){
@@ -74,6 +63,7 @@ function isTextInputValid(inputId, regexp, startMessage)
     inputElement.nextElementSibling.innerHTML = (startMessage + "ne doit pas etre vide");
         // ne pas oublier de passer hasError à true si une erreur est détectée
         hasError = true;
+        
     }
     //tester si  conforme
     else if (!regexp.test(inputElement.value)){
@@ -81,10 +71,12 @@ function isTextInputValid(inputId, regexp, startMessage)
     inputElement.nextElementSibling.innerHTML = (startMessage + "n'est pas conforme au format attendu");
         // ne pas oublier de passer hasError à true si une erreur est détectée
     hasError = true;
+    
     }
 
 // utiliser la propriete  nextElementSibling pour retrouver la div du message d'erreur
     return hasError;
+    
 }
 
 
