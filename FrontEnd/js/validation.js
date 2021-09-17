@@ -1,8 +1,6 @@
 let cart = getCart();
 
-if (cart.length == 0) {
-    location.href="index.html"; 
-}
+
 
 
 let totalPrice = document.getElementById('total_price');
@@ -14,14 +12,17 @@ let city = document.getElementById('city');
 let email = document.getElementById('user_email')
 
 let contact = JSON.parse(localStorage.getItem('contact'));
-console.log(contact);
-
+let orderId = localStorage.getItem('orderId');
+if (orderId === null) {
+    location.href="index.html"; 
+} else {
 address.innerHTML    = contact.address;
 zipCode.innerHTML    = contact.zipCode;
 city.innerHTML       = contact.city;
 totalPrice.innerHTML = localStorage.getItem('calculatedPrice')/100 + " €";
-idOrder.innerHTML    = localStorage.getItem('orderId');
+idOrder.innerHTML    = orderId;
 email.innerHTML      = contact.email;
 
-// localStorage.removeItem('cart');
 
+}
+// localStorage.clear();
