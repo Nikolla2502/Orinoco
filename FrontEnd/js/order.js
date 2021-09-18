@@ -79,11 +79,12 @@ document.getElementById('addToCart').addEventListener('click', function () {
         return;
     }
     else {
-        document.getElementById("selectColor").addEventListener('change',function() {
-            document.querySelector('.colorSelectText').style.display = "none";
-        });
+        // document.getElementById("selectColor").addEventListener('change',function() {
+        //     document.querySelector('.colorSelectText').style.display = "none";
+        // });
         colorTeddyAlert = document.querySelector('.colorSelectText');
         colorTeddyAlert.style="color:black;";
+        colorTeddyAlert.innerHTML = "";
         
         
     }
