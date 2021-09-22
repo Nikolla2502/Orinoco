@@ -19,11 +19,9 @@ for (let i=0; i < cart.length; i++){
     productIds.push(cart[i].id);
     localStorage.setItem('idTeddy',productIds);
 
-
     document.getElementById('cartContent').style.display = "contents";
     document.getElementById('cartError').style.display = "none";
-    
-    
+     
     let rowTeddy = document.createElement("tr");
     cartTeddy.appendChild(rowTeddy);
     
@@ -38,17 +36,11 @@ for (let i=0; i < cart.length; i++){
 //     cart.splice(1,1)
 // }
 
-
-
-
 document.getElementById('totalPrice').innerHTML = calculatedPrice/100 + " €" ;
 
 localStorage.setItem('calculatedPrice',calculatedPrice);
 
-
-
 //####### Validation Formulaire #######//
-
 function isTextInputValid(inputElement, regexp, startMessage)
 {
     let hasError = false;
@@ -66,7 +58,6 @@ function isTextInputValid(inputElement, regexp, startMessage)
     return !hasError;
     
 }
-
 
 // formulaire client
 let formValidation = document.getElementById('cartValidation');
@@ -107,7 +98,6 @@ formValidation.onclick = function (event){
             products: productIds,
         
         };
-        
         localStorage.setItem('contact', JSON.stringify(order.contact));
 
         fetch('http://localhost:3000/api/teddies/order', {
@@ -122,7 +112,6 @@ formValidation.onclick = function (event){
             if (response.ok) {
                 return response.json();
             }
-    
             throw Error;
         })
         .then(response => {
@@ -130,10 +119,11 @@ formValidation.onclick = function (event){
             localStorage.setItem('orderId', response.orderId);
             console.log(response);
             location.href = this.href;
-            //redirection vers pasge de confirmation
+            //redirection vers page de confirmation
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            location.href="erreur.html"; 
+        });
     }
-
 };
 

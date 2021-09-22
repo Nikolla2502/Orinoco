@@ -4,7 +4,6 @@ function getCart() {
 
 function displayArticleNumber() {
     let cart = getCart();
-
     if (cart.length) {
         let itemNumber = document.getElementById('cartLength');
         itemNumber.style =null;

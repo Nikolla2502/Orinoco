@@ -1,11 +1,9 @@
-"use strict";
 
 let containerTeddy = document.getElementById("item_container");
 
 fetch('http://localhost:3000/api/teddies')
 .then(response => response.json())
 .then(teddies => {
-    
     for(let i = 0; i < teddies.length; i++){
 
         let divContainer = document.createElement("div");
@@ -37,20 +35,17 @@ fetch('http://localhost:3000/api/teddies')
         imgTeddy.setAttribute('src', teddies[i].imageUrl);
         divContainer.appendChild(imgTeddy);
 
-
         let priceTeddy = document.createElement("h4");
         priceTeddy.classList.add("card-price");
         priceTeddy.classList.add("text-center");
         priceTeddy.innerHTML = (teddies[i].price / 100) + " €";
         divContainer.appendChild(priceTeddy);
-        
     }
 })
-// .catch(error => console.log(error));
+
 .catch(error => {
     document.getElementById('serverError').style.display = "contents";
-    
     document.getElementById('teddyChoice').style.display ="none";
-})
+});
 
 displayArticleNumber();

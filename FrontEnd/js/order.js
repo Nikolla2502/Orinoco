@@ -1,5 +1,4 @@
-// localStorage.clear();
-console.log(typeof localStorage.cart);
+
 // choix du teddy -------------------
 displayArticleNumber();
 let containerTeddy = document.getElementById("card-body");
@@ -42,6 +41,12 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     colorSelect.id = ("selectColor");
     divContainer.appendChild(colorSelect);
 
+    colorSelect.addEventListener('change',function() {
+        if (this.value !==0){
+            document.querySelector('.colorSelectText').style.display = "none";
+        }
+    });
+
     let optionSelect = document.createElement("option");
     optionSelect.innerHTML = "Choisissez votre couleur :";
     optionSelect.setAttribute('value', 0 );
@@ -63,43 +68,33 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     divContainer.appendChild(priceTeddy);
 
 
-});
+})
 
-// Ajout de la selction dans le panier
+.catch(error => {
+    location.href="erreur.html";
+});
+// Ajout de la selection dans le panier
 document.getElementById('addToCart').addEventListener('click', function () {
     colorTeddy = document.querySelector('select').value;
 
 // Alert couleur non choisi
-    let colorTeddyAlert;
+    let colorTeddyAlert = document.querySelector('.colorSelectText');
 
     if (colorTeddy == 0) {
-        colorTeddyAlert = document.querySelector('.colorSelectText');
         colorTeddyAlert.style="color:red;font-weight:bold;";
         colorTeddyAlert.innerText = 'Vous devez choisir une couleur !!';
         return;
     }
-    else {
-        // document.getElementById("selectColor").addEventListener('change',function() {
-        //     document.querySelector('.colorSelectText').style.display = "none";
-        // });
-        colorTeddyAlert = document.querySelector('.colorSelectText');
-        colorTeddyAlert.style="color:black;";
-        colorTeddyAlert.innerHTML = "";
-        
-        
-    }
-
+  
+    
     nameTeddy = document.getElementById('card-name').innerHTML;
     priceTeddy = document.getElementById('card-price').innerHTML;
- 
-    // alert("Votre article a bien été ajouté");
-    addToCartAlert = document.querySelector('.colorSelectText').innerText = "Votre article a bien été ajouté";
-     
-   
     
+    // alert("Votre article a bien été ajouté");
+    colorTeddyAlert.style="color:black;";
+    colorTeddyAlert.innerText = "Votre article a bien été ajouté";
 
     let currentTeddy = JSON.parse(localStorage.currentTeddy);
-    
     let teddy = {
         id : teddyId,
         name: currentTeddy.name,
@@ -107,15 +102,12 @@ document.getElementById('addToCart').addEventListener('click', function () {
         price : currentTeddy.price
         
     };
-
-    
     let cart = getCart();
     cart.push(teddy);
     localStorage.setItem('cart', JSON.stringify(cart));
 
     // affichage nombre items dans le cart
     displayArticleNumber();
-   
 
 });
 
