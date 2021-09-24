@@ -43,7 +43,7 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
 
     colorSelect.addEventListener('change',function() {
         if (this.value !==0){
-            document.querySelector('.colorSelectText').style.display = "none";
+            document.querySelector('.colorSelectText').innerHTML = "";
         }
     });
 
@@ -91,7 +91,7 @@ document.getElementById('addToCart').addEventListener('click', function () {
     priceTeddy = document.getElementById('card-price').innerHTML;
     
     // alert("Votre article a bien été ajouté");
-    colorTeddyAlert.style="color:black;";
+    colorTeddyAlert.style="color:black;font-weight:bold;";
     colorTeddyAlert.innerText = "Votre article a bien été ajouté";
 
     let currentTeddy = JSON.parse(localStorage.currentTeddy);
