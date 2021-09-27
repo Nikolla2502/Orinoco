@@ -1,4 +1,3 @@
-
 // choix du teddy -------------------
 displayArticleNumber();
 let containerTeddy = document.getElementById("card-body");
@@ -66,10 +65,7 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
     priceTeddy.classList.add("mt-3");
     priceTeddy.innerHTML = (teddy.price / 100) + " €";
     divContainer.appendChild(priceTeddy);
-
-
 })
-
 .catch(error => {
     location.href="erreur.html";
 });
@@ -85,7 +81,6 @@ document.getElementById('addToCart').addEventListener('click', function () {
         colorTeddyAlert.innerText = 'Vous devez choisir une couleur !!';
         return;
     }
-  
     
     nameTeddy = document.getElementById('card-name').innerHTML;
     priceTeddy = document.getElementById('card-price').innerHTML;
@@ -100,15 +95,12 @@ document.getElementById('addToCart').addEventListener('click', function () {
         name: currentTeddy.name,
         color :colorTeddy,
         price : currentTeddy.price
-        
     };
     let cart = getCart();
     cart.push(teddy);
     localStorage.setItem('cart', JSON.stringify(cart));
-
     // affichage nombre items dans le cart
     displayArticleNumber();
-
 });
 
 

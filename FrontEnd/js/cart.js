@@ -31,10 +31,6 @@ for (let i=0; i < cart.length; i++){
     // addColumnToRow("Supprimer",rowTeddy);
     calculatedPrice += Number(cart[i].price);
 }
-// let deleteTeddy = document.getElementById("deleteTeddy");
-// deleteTeddy.onclick = function(event){
-//     cart.splice(1,1)
-// }
 
 document.getElementById('totalPrice').innerHTML = calculatedPrice/100 + " €" ;
 

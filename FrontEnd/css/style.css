@@ -15,7 +15,6 @@ body,.cart-bg{
 .card{
     border-radius: 15px;
 }
-
 /* ####################### */
 /*  Element declares dans Javascript (index.js) */
 /* ####################### */
@@ -50,7 +49,6 @@ body,.cart-bg{
 /* ####################### */
 /*######## ID  #########*/
 /* ####################   */
-
 #index
 {
     transform: scale(1);
@@ -67,20 +65,17 @@ body,.cart-bg{
     justify-content: space-around;
     margin-bottom: 100px;
 }
-
 #totalPrice {
     font-size: 1.5rem;
 }
-
 #cartLength {
     font-size:1rem;
     color: white;
     position: relative;
     right: 35px;
 }
-/* ########################## */
-/* ####           ##########  */
-/* ########################## */
+
+
 select{
     width: 200px;
 }
