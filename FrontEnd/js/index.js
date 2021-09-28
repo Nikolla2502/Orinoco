@@ -2,7 +2,14 @@
 let containerTeddy = document.getElementById("item_container");
 
 fetch('http://localhost:3000/api/teddies')
-.then(response => response.json())
+.then((response) => {
+    if (response.status >= 200 && response.status <= 299) {
+        return response.json();
+    } else {
+        throw error;
+    }
+})
+// .then(response => response.json())
 .then(teddies => {
     for(let i = 0; i < teddies.length; i++){
 
@@ -44,8 +51,7 @@ fetch('http://localhost:3000/api/teddies')
 })
 
 .catch(error => {
-    document.getElementById('serverError').style.display = "contents";
-    document.getElementById('teddyChoice').style.display ="none";
+    location.href="erreur.html"; 
 });
 
 displayArticleNumber();

@@ -6,7 +6,14 @@ let choosenTeddy = new URLSearchParams (document.location.href.split('?')[1]);
 let teddyId = choosenTeddy.get("id_teddy");
 
 fetch('http://localhost:3000/api/teddies/' + teddyId)
-.then(response => response.json())
+.then((response) => {
+    if (response.status >= 200 && response.status <= 299) {
+        return response.json();
+    } else {
+        throw error;
+    }
+})
+// .then(response => response.json())
 .then(teddy => {
     
     localStorage.setItem('currentTeddy', JSON.stringify(teddy));
