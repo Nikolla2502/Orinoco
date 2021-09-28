@@ -28,7 +28,6 @@ for (let i=0; i < cart.length; i++){
     addColumnToRow(cart[i].name,rowTeddy);
     addColumnToRow(cart[i].color,rowTeddy);
     addColumnToRow(cart[i].price/100 + " €",rowTeddy);
-    // addColumnToRow("Supprimer",rowTeddy);
     calculatedPrice += Number(cart[i].price);
 }
 
@@ -67,12 +66,12 @@ formValidation.onclick = function (event){
     let city = document.getElementById('city');
     let email = document.getElementById('email');
 
-    let nameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
-    let firstNameRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
-    let addressNumberRegexp = /^([0-9]{1,3}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç' \-]+))$/;
-    let zipCodeRegexp = /[0-9]{5}/;
-    let cityRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' \-]/;
-    let emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let nameRegexp = /^([a-zA-Zàâäéèêëïîôöùûüç' -])+$/;
+    let firstNameRegexp = /^([a-zA-Zàâäéèêëïîôöùûüç' -])+$/;
+    let addressNumberRegexp = /^([0-9]{0,}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç' -]+))$/;
+    let zipCodeRegexp = /^\d{5}$/;
+    let cityRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' -]/;
+    let emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
 
     let isValid = isTextInputValid(name, nameRegexp, 'Le champs Nom ');
     isValid = isTextInputValid(firstName, firstNameRegexp, 'Le champs Prénom ') && isValid;
