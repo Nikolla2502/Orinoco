@@ -75,7 +75,7 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
 })
 .catch(error => {
     console.log(error);
-    location.href="erreur.html";
+    location.href="producterror.html";
 });
 // Ajout de la selection dans le panier
 document.getElementById('addToCart').addEventListener('click', function () {
