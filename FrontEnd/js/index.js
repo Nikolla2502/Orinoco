@@ -5,9 +5,7 @@ fetch('http://localhost:3000/api/teddies')
 .then((response) => {
     if (response.status >= 200 && response.status <= 299) {
         return response.json();
-    } else {
-        throw error;
-    }
+    } throw error;
 })
 // .then(response => response.json())
 .then(teddies => {
