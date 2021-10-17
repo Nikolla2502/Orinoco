@@ -1,25 +1,24 @@
-// choix du teddy -------------------
+
 displayArticleNumber();
 let containerTeddy = document.getElementById("card-body");
 
-let choosenTeddy = new URLSearchParams (document.location.href.split('?')[1]);
+let choosenTeddy = new URLSearchParams(document.location.href.split('?')[1]);
 let teddyId = choosenTeddy.get("id_teddy");
 
 fetch('http://localhost:3000/api/teddies/' + teddyId)
 .then((response) => {
-    if (response.status >= 200 && response.status <= 299) {
+    if (response.ok) {
         return response.json();
-    } throw error;
+    }
+    throw Error;
 })
-// .then(response => response.json())
 .then(teddy => {
     
     localStorage.setItem('currentTeddy', JSON.stringify(teddy));
 
 // Creation du HTML avec les données reçues
     let divContainer = document.createElement("div");
-    divContainer.classList.add("col-lg-8");
-    divContainer.classList.add("mx-auto");
+    divContainer.classList.add("col-lg-8","mx-auto");
     containerTeddy.appendChild(divContainer);
 
     let nameTeddy = document.createElement("h2");
@@ -30,14 +29,12 @@ fetch('http://localhost:3000/api/teddies/' + teddyId)
   
 
     let imgTeddy = document.createElement("img");
-    imgTeddy.classList.add("card-img");
-    imgTeddy.classList.add("img-fluid");
+    imgTeddy.classList.add("card-img","img-fluid");
     imgTeddy.setAttribute('src', teddy.imageUrl);
     divContainer.appendChild(imgTeddy);
     
     let colorSelectText = document.createElement("h5");
-    colorSelectText.classList.add("colorSelectText");
-    colorSelectText.classList.add("text-center");
+    colorSelectText.classList.add("colorSelectText","text-center");
     divContainer.appendChild(colorSelectText);
 
     let colorSelect = document.createElement("select");

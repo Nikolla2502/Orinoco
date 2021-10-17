@@ -8,9 +8,7 @@ let cartTeddy = document.getElementById("cartTeddy");
 function addColumnToRow(text, row) 
 {
     let displayChoosenTeddy = document.createElement("td");
-    displayChoosenTeddy.classList.add("text-center");
-    displayChoosenTeddy.classList.add("border");
-    displayChoosenTeddy.classList.add("border-dark");
+    displayChoosenTeddy.classList.add("text-center","border","border-dark");
     displayChoosenTeddy.innerHTML = text;
     row.appendChild(displayChoosenTeddy);
 }
@@ -71,7 +69,7 @@ formValidation.onclick = function (event){
     let addressNumberRegexp = /^([0-9]{0,}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç' -]+))$/;
     let zipCodeRegexp = /^\d{5}$/;
     let cityRegexp = /[a-zA-Zàâäéèêëïîôöùûüç' -]/;
-    let emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    let emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/;
 
     let isValid = isTextInputValid(name, nameRegexp, 'Le champs Nom ');
     isValid = isTextInputValid(firstName, firstNameRegexp, 'Le champs Prénom ') && isValid;
@@ -79,6 +77,7 @@ formValidation.onclick = function (event){
     isValid = isTextInputValid(zipCode, zipCodeRegexp, 'Le champs Code Postal ') && isValid;
     isValid = isTextInputValid(city, cityRegexp, 'Le champs Ville ') && isValid;
     isValid = isTextInputValid(email, emailRegexp, 'Le champs Email ') && isValid;
+
 
     if (isValid) {
             let order = {
