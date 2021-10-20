@@ -1,6 +1,8 @@
 'strict';
 let containerTeddy = document.getElementById("item_container");
 
+// Recuperation et affichage des teddies disponible 
+
 fetch('http://localhost:3000/api/teddies')
 .then((response) => {
     if (response.ok) {

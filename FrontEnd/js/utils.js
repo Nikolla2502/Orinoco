@@ -1,7 +1,11 @@
+// Fichier commun pour le panier
+
+// Recuperation du panier
 function getCart() {
     return typeof localStorage.cart != 'undefined' ? JSON.parse(localStorage.cart) : [];
 }
 
+// Affichage du panier
 function displayArticleNumber() {
     let cart = getCart();
     if (cart.length) {
