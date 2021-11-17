@@ -49,7 +49,6 @@ function isTextInputValid(inputElement, regexp, startMessage)
         inputElement.nextElementSibling.innerHTML = "";
     }
     return !hasError;
-    
 }
 
 // formulaire client
